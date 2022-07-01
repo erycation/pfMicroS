@@ -1,0 +1,101 @@
+<div class="row vh-10 d-flex justify-content-center align-items-center" style="margin: 0px; padding : 2px;">
+  <div class="card zeroPaddingMarginSetting" style="margin:0px;padding: 0px;">
+    <div class="card-header" style="text-align: center;padding-top: 5px;padding-bottom: 5px;">
+      <h5 style="text-align: left;padding: 2px;">
+        <i class="fa fa-user fa-md" aria-hidden="true" style="color:#6c757d"></i>&nbsp;
+        {{patronStatusSummaryDetailsDto?.title}}
+        {{patronStatusSummaryDetailsDto?.firstName}}
+        {{patronStatusSummaryDetailsDto?.lastName}}
+        {{patronStatusSummaryDetailsDto?.identityNumber}}
+        <button type="button" class="btn btn-link pl-1" (click)="goToPageNoParams('patron-list')"
+          style="float: right;padding: 0px;margin: 0px;" title="Search Patron">
+          <i class="fa fa-times-circle fa-2x" aria-hidden="true" style="color: black;"></i>
+        </button>
+      </h5>
+    </div>
+
+    <div class="card-body">
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+          MDM Status
+        </div>
+        <div class="col-sm-2">
+          <input class="form-control form-control-sm" type="text" readonly style="color: white;"
+            [ngStyle]="{'background-color':patronStatusSummaryDetailsDto?.profileStatus === 'Active' ? 'green' : 'red' }"
+            [ngModel]="patronStatusSummaryDetailsDto?.profileStatus">
+        </div>
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+          Group Status
+        </div>
+        <div class="col-sm-2">
+          <input type="text" class="form-control form-control-sm" [ngModel]="patronStatusSummaryDetailsDto?.groupStatus"
+            readonly>
+        </div>
+
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+          Hosted By
+        </div>
+        <div class="col-sm-2">
+          <input class="form-control form-control-sm" type="text" readonly
+            [ngModel]="patronStatusSummaryDetailsDto?.hostedBy">
+        </div>
+      </div>
+
+      <div class="row rowsettings">
+        <nav ngbNav #nav="ngbNav" class="nav-tabs mt-3">
+          <ng-container ngbNavItem *ngIf="user.canViewPersonalDetails">
+            <a ngbNavLink>Personal Details</a>
+            <ng-template ngbNavContent>
+              <app-personal-detail [tsogosunId]="tsogosunId"></app-personal-detail>
+            </ng-template>
+          </ng-container>
+
+          <ng-container ngbNavItem *ngIf="user.canViewGamingPoints">
+            <a ngbNavLink>Gaming Points</a>
+            <ng-template ngbNavContent>
+              <app-gaming-points [tsogosunId]="tsogosunId"></app-gaming-points>
+            </ng-template>
+          </ng-container>
+
+          <ng-container ngbNavItem *ngIf="user.canViewKPI">
+            <a ngbNavLink>Gaming KPIs</a>
+            <ng-template ngbNavContent>
+              <app-gaming-kpis [tsogosunId]="tsogosunId"></app-gaming-kpis>
+            </ng-template>
+          </ng-container>
+
+          <ng-container ngbNavItem *ngIf="user.canViewOffers">
+            <a ngbNavLink>Offers</a>
+            <ng-template ngbNavContent>
+              <app-offers [tsogosunId]="tsogosunId"></app-offers>
+            </ng-template>
+          </ng-container>
+
+          <ng-container ngbNavItem *ngIf="user.canViewVIP">
+            <a ngbNavLink>VIP</a>
+            <ng-template ngbNavContent>
+              <app-vip></app-vip>
+            </ng-template>
+          </ng-container>
+
+          <ng-container ngbNavItem *ngIf="user.canViewPatronLeaderBoard">
+            <a ngbNavLink>Leaderboard</a>
+            <ng-template ngbNavContent>
+              <app-patron-leaderboard [tsogosunId]="tsogosunId"></app-patron-leaderboard>
+            </ng-template>
+          </ng-container>
+
+          <ng-container ngbNavItem ngbNavItem *ngIf="user.canViewPatronDetailsScratchCard">
+            <a ngbNavLink>Scratch Card</a>
+            <ng-template ngbNavContent>
+              <app-patron-detail-scratch-card [tsogosunId]="tsogosunId"></app-patron-detail-scratch-card>
+            </ng-template>
+          </ng-container>
+        </nav>
+
+        <div [ngbNavOutlet]="nav" class="tabContentStyle"></div>
+      </div>
+
+    </div>
+  </div>
+</div>

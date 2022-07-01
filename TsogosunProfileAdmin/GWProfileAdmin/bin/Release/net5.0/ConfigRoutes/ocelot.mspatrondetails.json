@@ -1,0 +1,268 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/PatronAddress/GetAll",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/PatronAddress/GetAll",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/PatronDetails/Get",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/PatronDetails/Get",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/PatronDetails/Update/Status",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/PatronDetails/Update/Status",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    }
+    //to be removed
+    ,
+    {
+      "DownstreamPathTemplate": "/api/PatronDetails/Info/Get/{userId}/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/PatronDetails/Info/Get/{userId}/{siteId}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/PatronDetails/Unconfirmed/gamesmart/{userId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/PatronDetails/Unconfirmed/gamesmart/{userId}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/PatronDetails/Unconfirmed/IGT/{userId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/PatronDetails/Unconfirmed/IGT/{userId}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/PatronDetails/Update/Unconfirmed/Gamesmart",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/PatronDetails/Update/Unconfirmed/Gamesmart",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/PatronDetails/Update/Unconfirmed/Igt",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/PatronDetails/Update/Unconfirmed/Igt",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    //"
+
+    //to be remove
+    {
+      "DownstreamPathTemplate": "/api/PatronDetails/Update/Info",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/PatronDetails/Update/Info",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    //end
+    {
+      "DownstreamPathTemplate": "/api/PatronDetails/Update/Address",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/PatronDetails/Update/Address",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/PatronDetails/Confirmed/Igt/{userId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/PatronDetails/Confirmed/Igt/{userId}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/PatronDetails/Confirmed/Gamesmart/{userId}/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/PatronDetails/Confirmed/Gamesmart/{userId}/{siteId}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/PatronDetails/Approved/GetAll/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/PatronDetails/Approved/GetAll/{siteId}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/PatronDetails/Gaming/Confirm/Status",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/PatronDetails/Gaming/Confirm/Status",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/GMSPatronDetails/Add",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/GMSPatronDetails/Add",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/IGTEnrolmentConfig/Get/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44364
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/IGTEnrolmentConfig/Get/{siteId}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+<div class="custom-dialog">
+	<h2 mat-dialog-title>{{modalTitle}} </h2>
+	<mat-dialog-content>
+    <mat-divider></mat-divider>
+
+    <div class="row rowPaddingSpacesettings" style="text-align:center;">
+        <b style="color: red;">{{resultsMessage}}</b>
+    </div>
+    
+        <div class="row rowPaddingSpacesettings" *ngFor="let scratchCardStrapiImage of scratchCardStrapiImages">
+            <div class="col-md-2" *ngIf = "scratchCardStrapiImage?.winningImage"> 
+                <mat-checkbox class="example-margin" (change)="setImage(scratchCardStrapiImage?.winningImage?.url)"></mat-checkbox>              
+                <img [src]="scratchCardStrapiImage?.winningImage?.url" width="175px" height="140px">
+            </div>
+        </div>
+		
+	</mat-dialog-content>
+	<mat-dialog-actions align="end">        
+		<button mat-raised-button  [mat-dialog-close]="true">Ok</button>
+	</mat-dialog-actions>
+</div>

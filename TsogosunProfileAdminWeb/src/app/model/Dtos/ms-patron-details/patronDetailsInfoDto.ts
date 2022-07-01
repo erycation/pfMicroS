@@ -1,0 +1,44 @@
+import { IGTEnrolmentConfigDto } from "./igt-config/igtEnrolmentConfigDto";
+import { PatronDetailsInfo } from "./patron-Info-Details/patronDetailsInfo";
+
+export interface PatronDetailsInfoDto extends PatronDetailsInfo {
+    webSiteID?: number | undefined;
+    mobileRegID?: string | undefined;
+    emailAddress?: string | undefined;
+    birthDate?: Date | undefined;
+    isEmailVerified?: boolean | undefined;
+    nationality?: string | undefined;
+    title?: string | undefined;
+    gender?: string | undefined;
+    idPassImage?: string | undefined;
+    idPassCountry?: string | undefined;
+    occupation?: string | undefined;
+    address1?: string | undefined;
+    address2?: string | undefined;
+    suburb?: string | undefined;
+    city?: string | undefined;
+    province?: string | undefined;
+    country?: string | undefined;
+    postalCode?: string | undefined;
+    preferredSms?: boolean | undefined;
+    preferredEmail?: boolean | undefined;
+    preferredPhoneCall?: boolean | undefined;
+    preferredPost?: boolean | undefined;
+    iLikePromotions?: boolean | undefined;
+    isSigningUpForRewards?: boolean | undefined;
+    isNewSignUp?: boolean | undefined;
+    isProfileUpdate?: boolean | undefined;
+    insertedDate: Date;
+    originatedFrom?: string | undefined;  
+    isSuburbCorrect?: boolean | undefined;
+    isCityCorrect?: boolean | undefined;
+    isProvinceCorrect?: boolean | undefined;
+    isCountryCorrect?: boolean | undefined;
+    isPostalCodeCorrect?: boolean | undefined;
+    isAddressCorrect?: boolean | undefined;
+    notes?: string | undefined;
+    siteId?: number | undefined;
+    pcId?: number | undefined;
+    adminUserName?: string | undefined;
+    formatIdPassImage?: string | undefined;
+}

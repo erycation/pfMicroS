@@ -1,0 +1,219 @@
+<div class="row vh-10 d-flex justify-content-center align-items-center" style="margin: 0px; padding : 2px;">
+  <div class="card zeroPaddingMarginSetting" style="margin:0px;padding: 0px;">
+    <div class="card-header" style="text-align: center;padding-top: 5px;padding-bottom: 5px;">
+      <h5 style="text-align: left;padding: 2px;">
+        Local - Update Leader Board
+      </h5>
+    </div>
+    <div class="card-body">
+      <div class="row rowActionButtonSetting">
+        <div class="col-sm-9"></div>
+        <div class="col-sm-3">
+          <div class="row">
+            <div class="col-sm-12">
+              <button type="button" class="btn btn-outline-primary statusBtnWidth" (click)="goToPageNoParams('leaderboard')"
+                style="float: right;">
+                Leader Board
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Unit</div>
+        <div class="col-md-5">
+          <input class="form-control" type="text" [(ngModel)]="siteFullName" readonly>
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Leader Board Name</div>
+        <div class="col-md-5">
+          <input class="form-control" type="text" [(ngModel)]="leaderBoardPromotionDto.promotionName" maxlength="50">
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Points Type</div>
+        <div class="col-md-3">
+          <ng-select [items]="user?.pointsTypes" [virtualScroll]="true" appendTo="body" bindLabel="type"
+            bindValue="type" placeholder="Select Points Type" [(ngModel)]="leaderBoardPromotionDto.promotionType">
+          </ng-select>
+        </div>
+        <div class="col-md-7"></div>
+      </div>
+
+
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Points Start Date</div>
+        <div class="col-md-3">
+          <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+              [(bsValue)]="startDate" [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}"> 
+        </div>
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Points Start Time</div>
+        <div class="col-md-2">          
+          <timepicker [(ngModel)]="startTime" ></timepicker>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Points End Date</div>
+        <div class="col-md-3">
+          <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+              [(bsValue)]="endDate" [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}"> 
+        </div>
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Points End Time</div>
+        <div class="col-md-2">
+          <timepicker [(ngModel)]="endTime" ></timepicker>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+      
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Start Rank</div>
+        <div class="col-md-3">
+          <ng-select [items]="user?.ranks" [virtualScroll]="true" appendTo="body" bindLabel="rankDescription"
+            bindValue="rankNumber" placeholder="Select Start Rank" [(ngModel)]="leaderBoardPromotionDto.startRank">
+          </ng-select>
+        </div>
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">End Rank</div>
+        <div class="col-md-3">
+          <ng-select [items]="user?.ranks" [virtualScroll]="true" appendTo="body" bindLabel="rankDescription"
+            bindValue="rankNumber" placeholder="Select End Rank" [(ngModel)]="leaderBoardPromotionDto.endRank">
+          </ng-select>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Number Of Patrons</div>
+        <div class="col-md-3">
+          <input class="form-control" type="text" [(ngModel)]="leaderBoardPromotionDto.noPatrons"
+            (keypress)="numberOnly($event)">
+        </div>
+        <div class="col-md-7"></div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Minimum Points</div>
+        <div class="col-md-3">
+          <input class="form-control" type="text" [(ngModel)]="leaderBoardPromotionDto.minPoints"
+            (keypress)="numberOnly($event)">
+        </div>
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Maximum Points</div>
+        <div class="col-md-3">
+          <input class="form-control" type="text" [(ngModel)]="leaderBoardPromotionDto.maxPoints"
+            (keypress)="numberOnly($event)">
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Gaming Areas</div>
+        <div class="col-md-3" style="padding: 5px;">
+
+          <div style="height: 200px;overflow: scroll;border: solid 1px lightgray;">
+            <ul style="list-style-type: none;">
+              <li *ngFor="let gamingArea of gamingAreas">
+                <mat-checkbox (change)="addGamingArreas(gamingArea)">
+                  {{gamingArea.location}}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2" style="text-align: center;padding-right: 10px;">
+          <button type="button" class="btn btn-outline-success statusBtnWidth" (click)="addAllGamingArreas()" [disabled]="gamingAreas?.length == 0">
+            Add All&nbsp;     
+            <i class="fa fa-angle-right fa-lg" aria-hidden="true"></i>  
+            <i class="fa fa-angle-right fa-lg" aria-hidden="true"></i>     
+          </button>
+          <br/>
+          <br/>
+          Selected Gaming Areas
+          <br/>
+          <br/>
+          <button type="button" class="btn btn-outline-danger statusBtnWidth" (click)="removeAllGamingArreas()" [disabled]="leaderBoardGamingAreas?.length == 0">
+            <i class="fa fa-angle-left fa-lg" aria-hidden="true"></i>
+            <i class="fa fa-angle-left fa-lg" aria-hidden="true"></i>
+            &nbsp;Remove All        
+          </button>
+          <br/>
+        </div>
+
+        <div class="col-md-3" style="padding: 5px;">
+          <div style="height: 200px;overflow: scroll;border: solid 1px lightgray;">
+            <ul style="list-style-type: none;">
+              <li *ngFor="let gamingArea of leaderBoardGamingAreas">
+                <mat-checkbox (change)="removeGamingArreas(gamingArea)">
+                  {{gamingArea.location}}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Status</div>
+        <div class="col-md-2">
+          <ng-select [items]="user?.statusItems" [virtualScroll]="true" bindLabel="description"
+            (change)="changeStatus()" placeholder="Select Status" bindValue="statusId"
+            [(ngModel)]="leaderBoardPromotionDto.active">
+          </ng-select>
+        </div>
+        <div class="col-md-3">
+          <b [ngStyle]="{'color':leaderBoardPromotionDto?.status === 'Active' ? 'green' : 'red' }">
+            {{leaderBoardPromotionDto.status}}</b>
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">
+          <b>Display On Mobile</b>
+        </div>
+        <div class="col-md-6">
+          <section class="example-section">
+            <mat-checkbox class="example-margin" [(ngModel)]="leaderBoardPromotionDto.displayOnMobile"></mat-checkbox>
+          </section>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+      <div *ngIf="leaderBoardPromotionDto.displayOnMobile">
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+          <div class="col-md-2" style="text-align: right;padding-right: 10px;">Mobile Heading</div>
+          <div class="col-md-7">
+            <input class="form-control" type="text" [(ngModel)]="mobileSettingDto.mainHeading">
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+          <div class="col-md-2" style="text-align: right;padding-right: 10px;">Mobile Main Image</div>
+          <div class="col-md-7">
+            <input class="form-control" type="text" [(ngModel)]="mobileSettingDto.mainImage" readonly>
+          </div>
+          <div class="col-md-3">
+            <button type="button" class="btn btn-outline-primary statusBtnWidth"
+              (click)="goToLink(mobileSettingDto.mainImage)">
+              view <i class="fa fa-eye" aria-hidden="true"></i>
+            </button>
+            &nbsp;
+            <button type="button" class="btn btn-outline-primary statusBtnWidth"
+              (click)="updateMobileMainImage('Mobile Main Image')">
+              edit <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-10"></div>
+        <div class="col-md-2">
+          <button type="button" style="float: right;" class="btn btn-outline-success statusBtnWidth"
+            (click)="updateLeaderBoard()">
+            Update Local&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

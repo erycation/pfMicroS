@@ -1,0 +1,181 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+/* You can add global styles to this file, and also import other style files */
+
+.overlay {
+    position: fixed; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    text-align: center;
+    /* Black background with opacity */
+    background: rgba(0, 0, 0, 0.5) url('assets/images/spinner-loader.gif') no-repeat center;
+    z-index: 2000; /* Specify a stack order in case you're using a different order for other elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .overlay > span {
+    margin-top: -50px;
+  }
+
+.statusBtnWidth
+{
+    max-width: 180px;
+}
+.rowsettings
+{
+    margin: 3px;
+}
+.rowPaddingSpacesettings
+{
+    padding: 3px;
+    margin: 0px;
+}
+.rowActionButtonSetting
+{
+    padding: 1px;
+    margin: 0px;
+}
+.zeroPaddingMarginSetting
+{
+    margin: 0px;
+    padding: 0px;
+}
+.tabContentStyle
+{
+    border-bottom: solid 1px lightgray;
+    border-left: solid 1px lightgray;
+    border-right: solid 1px lightgray;
+    border-top: none;
+    margin-top: 0rem;
+    padding: 10px;
+    
+}
+.cardPaddingSetting
+{
+    padding: 0px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.panelHeaderCss
+{
+    background-color: #eee;
+    border:1px solid rgba(0, 0, 0, 0.12);
+}
+.loginpanelHeader
+{
+    background-color: #eee;
+    border:1px solid rgba(0, 0, 0, 0.12);
+    padding: 5px;
+    text-align: center;
+}
+
+.loginpanelContent
+{
+    padding:12px;
+}
+
+.logoImage {
+    width:170px;
+    height:70px;
+  }
+
+  .matInputClass {
+    width: 100%;
+  }
+
+  .headerPanelSettings {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .menuLayoutSetting
+  {
+    min-height: 100vh; 
+    margin: 0px;padding: 
+    0px;
+  }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .logoImage {
+        width:80px;
+        height:40px;
+      }
+      .menuLayoutSetting
+      {
+        min-height: 12px; 
+        margin: 0px;padding: 
+        0px;
+      }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    .logoImage {
+        width:100px;
+        height:50px;
+      }
+      .menuLayoutSetting
+      {
+        min-height: 12px; 
+        margin: 0px;
+        padding: 0px;
+      }
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .logoImage {
+        width:120px;
+        height:60px;
+      }
+     
+  } 
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .logoImage {
+        width:150px;
+        height:68px;
+      }
+  } 
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    .logoImage {
+        width:165px;
+        height:70px;
+      }
+      .menuLayoutSetting
+      {
+        min-height: 100vh; 
+        margin: 0px;padding: 
+        0px;
+      }
+  }
+
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+  .page-content {
+    flex: 1 0 auto;
+  }
+
+
+  .mat-sidenav {
+    width: 360px;
+  }
+  .mat-sidenav-container {
+    background-color: white !important;
+    height: 100vh;
+  }
+
+ 

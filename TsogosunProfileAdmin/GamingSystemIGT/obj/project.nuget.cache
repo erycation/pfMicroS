@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Jede5+Dimfa/3VJuSqfqAACmdGrnfn9sWRK0IvxQKOV/GA7UCfF0AzlZxOsSNyaOSHnkB7p4kpQywf4Kn8ZYBQ==",
+  "success": true,
+  "projectFilePath": "C:\\ProjectSVN\\trunk\\TsogosunProfileAdmin\\TsogosunProfileAdmin\\GamingSystemIGT\\GamingSystemIGT.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ericm\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\ericm\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>tsogosun.com.GamingSystemIGT</AssemblyName>
+    <RootNamespace>tsogosun.com.GamingSystemIGT</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\PlayerProfileDto\Response\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>

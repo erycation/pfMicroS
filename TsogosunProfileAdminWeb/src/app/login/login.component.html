@@ -1,0 +1,40 @@
+<div class="row" style="margin-top:80px;padding: 0px;margin-left: 0px;margin-right: 0px;">
+    <div class="col-md-4">
+    </div>
+
+    <div class="col-md-4">
+        <mat-card style="padding: 0px;margin: 0px;">
+            <mat-card-title class="loginpanelHeader">Login</mat-card-title>
+            <mat-card-content class="loginpanelContent">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <p>
+                        <mat-form-field >
+                            <input type="text" matInput placeholder="Username" formControlName="username" autocomplete="off">
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <input [type]="showPassword ? 'text' : 'password'" matInput placeholder="Password" formControlName="password">
+                            <mat-icon matSuffix (click)="togglePasswordVisibility()" style="color: #6c757d;">
+                                {{showPassword?'visibility_off':'visibility'}}
+                            </mat-icon>
+                        </mat-form-field>
+                    </p>
+
+                    <p *ngIf="error" class="error">
+                        {{ errorMessage }}
+                    </p>
+
+                    <div class="button">
+                        <button [disabled]="loading" class="btn btn-primary" style="float: right;">
+                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                            Login
+                        </button>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>

@@ -1,0 +1,96 @@
+<mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+       <mat-expansion-panel-header class="panelHeaderCss">
+            <mat-panel-title>
+                <b>Scratch Cards - Winners</b>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <br />
+        <div class="row rowPaddingSpacesettings">
+
+          <div class="col-sm-3">
+            Start Date<br />
+            <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+              [(bsValue)]="startDate" [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}"
+              (ngModelChange)="resetScratchCardByUnit()">
+          </div>
+          <div class="col-sm-3">
+            End Date<br />
+            <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+              [(bsValue)]="endDate" [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}"
+              (ngModelChange)="resetScratchCardByUnit()">
+          </div>
+          <div class="col-md-3">
+            Unit<br />
+            <ng-select [items]="userSites" [virtualScroll]="true" appendTo="body" bindLabel="siteFullName" bindValue="siteID"
+            placeholder="Select Unit" [(ngModel)]="siteId" (change) = "populateScratchCardsForWinner()">
+          </ng-select>
+          </div> 
+          <div class="col-sm-3"></div>
+        </div>
+
+        <div class="row rowPaddingSpacesettings">                    
+        <div class="col-md-3">Scratch Card<br />
+            <ng-select [items]="scratchCardForWinners" [virtualScroll]="true" appendTo="body" bindLabel="description" bindValue="scratchCardUID"
+            placeholder="Select Scratch Card" [(ngModel)]="scratchCardUID" (change) = "populatePrizeTypesByScratchCard()">
+          </ng-select>
+        </div>
+        <div class="col-md-5">Prize Details<br />
+          <ng-select [items]="scratchCardPrizesDto" [virtualScroll]="true" appendTo="body" bindLabel="priceDetails"
+          placeholder="Select Price Type" [(ngModel)]="scratchCardPrizeDto">
+        </ng-select>
+      </div>
+          <div class="col-md-2">
+            <br />
+           <button type="button" class="btn btn-secondary statusBtnWidth" (click)="searchWinners()">
+            Search &nbsp;<i class="fa fa-search" aria-hidden="true" style="color:white"></i>
+          </button>
+          </div> 
+          <div class="col-sm-2" *ngIf="showPdfExcelReport">
+            <br />
+            <button type="button" class="btn btn-outline-danger statusBtnWidth" (click) = "generatePDFOrExcelReportWinners('pdf')" >              
+              Pdf <i class="fa fa-download" aria-hidden="true" style="color: red;"></i>
+            </button>
+            &nbsp; 
+            <button type="button" class="btn btn-outline-success statusBtnWidth" (click) = "generatePDFOrExcelReportWinners('excel')">
+              Excel <i class="fa fa-download" aria-hidden="true" style="color: green;"></i>
+            </button>
+          </div>       
+        </div>
+
+          <br />
+         
+
+      <div class="row rowPaddingSpacesettings">
+            <table class="table table-bordered" style="margin-bottom: 0px;">
+                <thead style="background-color: #eee;">
+                    <tr>
+                        <th>Prize Type</th>
+                        <th>Patron No</th>
+                        <th>Collected Date</th>
+                        <th>Winner</th>
+                    </tr>
+                </thead>            
+                  <tbody *ngFor="let scratchCardWinner of scratchCardForWinnersItems">
+                     <tr>
+                        <td>{{scratchCardWinner.prizeType}}</td>
+                        <td>{{scratchCardWinner.patronNumber}}</td>                       
+                        <td>{{scratchCardWinner.dateInserted | date: 'd MMM yyyy'}}</td>
+                        <td><b
+                          [ngStyle]="{'color':scratchCardWinner?.winner === 'Yes' ? 'green' : 'red' }">{{scratchCardWinner.winner}}</b>
+                      </td>        
+                    </tr>
+                </tbody>
+            </table>
+           <p *ngIf="showNoResultsMessage"
+                style="text-align: center;border:solid 1px #eee;padding: 10px;margin: 0px;color: red;">
+                {{resultsMessage}}</p>
+                <div class="row rowPaddingSpacesettings">
+                  <div class="text-center">
+                    <jw-pagination [items]="scratchCardWinnersDto" (changePage)="onChangePage($event)"></jw-pagination>
+                  </div>
+                </div>
+        </div>
+
+    </mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,89 @@
+<mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header class="panelHeaderCss">
+            <mat-panel-title>
+                <b>Draws</b>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <br />
+        <div class="row rowPaddingSpacesettings">
+            <div class="col-sm-4">
+                Unit<br />
+                <ng-select [items]="patronSites" bindLabel="siteName" placeholder="Select Unit"
+                    [(ngModel)]="patronSiteDraws" [virtualScroll]="true" appendTo="body">
+                </ng-select>
+
+            </div>
+            <div class="col-sm-3">
+                Start Date<br />
+                <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+                    [(bsValue)]="startDate"
+                    [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">
+            </div>
+            <div class="col-sm-3">
+                End Date<br />
+                <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+                    [(bsValue)]="endDate"
+                    [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">
+            </div>
+            <div class="col-sm-2"><br />
+                <button type="button" class="btn btn-secondary statusBtnWidth" (click)="searchDraw()">
+                    Search &nbsp;<i class="fa fa-search" aria-hidden="true" style="color:white"></i>
+                </button>
+            </div>
+        </div>
+        <br />
+        <div class="row rowPaddingSpacesettings">
+            <div class="col-sm-4" style="text-align: right;"><i><b>Search Draw By Promotion Status : </b></i></div>
+            <div class="col-sm-8">
+                <mat-radio-group [(ngModel)]="filterPromotionStatus" aria-label="Select an option">
+                    <mat-radio-button value="all">All</mat-radio-button>
+                    <mat-radio-button value="Open">Open</mat-radio-button>
+                    <mat-radio-button value="Closed">Closed</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <br />
+        <div class="row rowPaddingSpacesettings">
+            <table class="table table-bordered" style="margin-bottom: 0px;">
+                <thead style="background-color: #eee;">
+                    <tr>
+                        <th>Promotion Name</th>
+                        <th>Draw Date</th>
+                        <th>Ingenico Tickets</th>
+                        <th>FreeIssue Tickets</th>
+                        <th>FreeIssue Bonus Tickets</th>
+                        <th>Points Tickets</th>
+                        <th>Points To Next Ticket</th>
+                        <th>Collectable Tickets</th>
+                        <th>Collected Tickets</th>
+                        <th>Date Collected</th>
+                        <th>Display On</th>
+                        <th>Promotions Status</th>
+                        <th>Ticket Status</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let patronDraw of patronDrawDto | drawpipe : filterPromotionStatus">
+                    <tr>
+                        <td>{{patronDraw.promotionName}}</td>
+                        <td>{{patronDraw.drawDate | date: 'd MMM yyyy'}}</td>
+                        <td>{{patronDraw.ingenicoTickets}}</td>
+                        <td>{{patronDraw.freeIssueTickets}}</td>
+                        <td>{{patronDraw.freeIssueBonusTickets}}</td>
+                        <td>{{patronDraw.pointsTickets}}</td>
+                        <td>{{patronDraw.pointsToNextTicket}}</td>
+                        <td>{{patronDraw.collectableTickets}}</td>
+                        <td>{{patronDraw.collectedTickets}}</td>
+                        <td>{{patronDraw?.dateCollected | date: 'd MMM yyyy h:mm:ss a'}}</td>
+                        <td>{{patronDraw?.displayOn}}</td>
+                        <td>{{patronDraw?.promotionsStatus}}</td>
+                        <td>{{patronDraw?.ticketStatus}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p *ngIf="showNoResultsMessage"
+                style="text-align: center;border:solid 1px #eee;padding: 10px;margin: 0px;color: red;">
+                {{resultsMessage}}</p>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

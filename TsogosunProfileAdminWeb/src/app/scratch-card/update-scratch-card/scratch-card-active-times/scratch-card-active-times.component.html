@@ -1,0 +1,54 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header class="panelHeaderCss">
+      <mat-panel-title>
+        <b>Active Dates</b>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="row rowPaddingSpacesettings">
+      <div class="col-md-12">
+        <button type="button" class="btn btn-outline-primary statusBtnWidth" style="float: right;"
+          (click)="addScratchActiveDates()">
+          Add Active Dates &nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <div class="row rowPaddingSpacesettings">
+      <table class="table table-bordered" style="margin-bottom: 0px;">
+        <thead style="background-color: #eee;">
+          <tr>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let scratchCardActiveTime of scratchCardActiveTimesItems">
+          <tr>
+            <td>{{scratchCardActiveTime.startDateTime | date: 'd/M/y h:mm:ss a'}}</td>
+            <td>{{scratchCardActiveTime.endDateTime | date: 'd/M/y h:mm:ss a'}}</td>
+            <td>
+              <b
+                [ngStyle]="{'color':scratchCardActiveTime?.status === 'Active' ? 'green' : 'red' }">{{scratchCardActiveTime.status}}</b>
+            </td>
+            <td>
+              <button type="button" class="btn btn-link pl-1"  (click)="editActiveDatesModal(scratchCardActiveTime)">
+                <i class="fa fa-pencil" aria-hidden="true" style="color: blue;"
+                 ></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p *ngIf="showNoResultsMessage"
+        style="text-align: center;border:solid 1px #eee;padding: 10px;margin: 0px;color: red;">
+        {{resultsMessage}}</p>
+      <div class="row rowPaddingSpacesettings">
+        <div class="text-center">
+          <jw-pagination [items]="scratchCardActiveTimes" (changePage)="onChangePage($event)"></jw-pagination>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,19 @@
+
+<div class="row" >
+    <nav ngbNav #nav="ngbNav" class="nav-tabs mt-3">
+        <ng-container ngbNavItem>
+          <a ngbNavLink>TSG</a>
+          <ng-template ngbNavContent>
+            <app-gaming-kpis-tsg [tsogosunId]="tsogosunId"></app-gaming-kpis-tsg>
+          </ng-template>
+        </ng-container>
+
+        <ng-container ngbNavItem *ngFor="let site of patronSites"> 
+          <a ngbNavLink>{{site.siteShortName}}</a>
+          <ng-template ngbNavContent>
+            <app-gaming-kpis-unit [tsogosunId]="tsogosunId" [patronNumber] = "site.patronID.toString()" [siteId]="site.property_Registered"></app-gaming-kpis-unit>
+          </ng-template>
+        </ng-container>                    
+     </nav>
+      <div [ngbNavOutlet]="nav" class="tabContentStyle"></div>
+  </div>

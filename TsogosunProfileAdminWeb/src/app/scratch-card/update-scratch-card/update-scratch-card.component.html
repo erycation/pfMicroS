@@ -1,0 +1,122 @@
+<div class="row vh-10 d-flex justify-content-center align-items-center" style="margin: 0px; padding : 2px;">
+  <div class="card zeroPaddingMarginSetting" style="margin:0px;padding: 0px;">
+    <div class="card-header" style="text-align: center;padding-top: 5px;padding-bottom: 5px;">
+      <h5 style="text-align: left;padding: 2px;">
+        Update Scratch Card
+      </h5>
+    </div>
+    <div class="card-body">
+      <div class="row rowActionButtonSetting">
+        <div class="col-sm-9"></div>
+        <div class="col-sm-3">
+          <div class="row">
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-outline-primary statusBtnWidth"
+                (click)="goToPageNoParams('dashboard-scratch-card')" style="float: right;">
+                Overview &nbsp;<i class="fa fa-dashboard" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-outline-primary statusBtnWidth" (click)="goToPageNoParams('scratch-card')"
+                style="float: right;">
+                Scratch Cards 
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Unit</div>
+        <div class="col-md-5">
+          <input class="form-control" type="text" [(ngModel)]="siteFullName" readonly>
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Scratch Card Name</div>
+        <div class="col-md-5">
+          <input class="form-control" type="text" [(ngModel)]="scratchCardDto.description" maxlength="50">
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">StartDate</div>
+        <div class="col-md-2">
+          <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+            [(bsValue)]="startDate" [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">
+        </div>
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">EndDate</div>
+        <div class="col-md-2">
+          <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+            [(bsValue)]="endDate" [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">        
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+      
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Tile Image</div>
+        <div class="col-md-7">
+          <input class="form-control" type="text" [(ngModel)]="scratchCardDto.tileImagePath" readonly>
+        </div>
+        <div class="col-md-3">
+          <button type="button" class="btn btn-outline-primary statusBtnWidth" (click) = "goToLink(scratchCardDto.tileImagePath)">              
+            view <i class="fa fa-eye" aria-hidden="true"></i>
+          </button>
+          &nbsp; 
+          <button type="button" class="btn btn-outline-primary statusBtnWidth" (click)="updateScratchCardTileImage('Tile Image')">
+            edit <i class="fa fa-pencil" aria-hidden="true" ></i>
+          </button>
+        </div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Status</div>
+        <div class="col-md-2">
+          <ng-select [items]="user?.statusItems" [virtualScroll]="true" bindLabel="description"
+            (change)="changeStatus()" placeholder="Select Status" bindValue="statusId"
+            [(ngModel)]="scratchCardDto.isActive">
+          </ng-select>
+        </div>
+        <div class="col-md-3">
+          <b [ngStyle]="{'color':scratchCardDto?.status === 'Active' ? 'green' : 'red' }">
+              {{scratchCardDto.status}}</b>
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+          <button type="button" [disabled]="loading" style="float: right;" class="btn btn-outline-success" (click)="updateScratchCard()">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Update &nbsp;<i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <br />
+
+      <div class="row rowsettings">
+        <nav ngbNav #nav="ngbNav" class="nav-tabs mt-3">
+          <ng-container ngbNavItem>
+            <a ngbNavLink>Prizes</a>
+            <ng-template ngbNavContent>
+              <app-list-scratch-card-prizes [siteId]="scratchCardDto.siteId" [scratchCardId]="scratchCardDto.scratchCardUID" [siteFullName] = "siteFullName">
+              </app-list-scratch-card-prizes>
+            </ng-template>
+          </ng-container>
+
+          <ng-container ngbNavItem>
+            <a ngbNavLink>Active Times</a>
+            <ng-template ngbNavContent>
+              <app-scratch-card-active-times [siteId]="scratchCardDto.siteId" 
+              [scratchCardId]="scratchCardDto.scratchCardUID"
+              [scratchCardstartDate] = "scratchCardDto.startDateTime" 
+              [scratchCardendDate] = "scratchCardDto.endDateTime">   
+              </app-scratch-card-active-times>
+            </ng-template>
+          </ng-container>
+        </nav>
+        <div [ngbNavOutlet]="nav" class="tabContentStyle"></div>
+      </div>
+    </div>
+  </div>
+</div>

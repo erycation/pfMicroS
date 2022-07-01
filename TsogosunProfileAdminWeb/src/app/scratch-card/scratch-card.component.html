@@ -1,0 +1,62 @@
+<div class="row" style="margin: 0px; padding : 2px;">
+    <div class="card zeroPaddingMarginSetting" style="margin:0px;padding: 0px;">
+        <div class="card-header" style="text-align: center;padding-top: 5px;padding-bottom: 5px;">
+            <h5 style="text-align: left;padding: 2px;">
+                <!--<mat-icon class="routeIcon"  style="color:#6c757d">local_activity</mat-icon>
+                &nbsp;
+            -->Scratch Card
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="row rowActionButtonSetting">
+                <div class="col-sm-8"></div>
+                <div class="col-sm-4">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <button type="button" class="btn btn-outline-primary statusBtnWidth" *ngIf="user.canViewScratchCardOverview"
+                      (click)="goToPage('dashboard-scratch-card')" style="float: right;">
+                      Overview &nbsp;<i class="fa fa-dashboard" aria-hidden="true"></i>
+                    </button>
+                    </div>
+                    <div class="col-sm-6">
+                      <button type="button" class="btn btn-outline-primary statusBtnWidth"  *ngIf="user.canAddEditScratchCard"
+                      (click)="goToPage('add-scratch-card')" style="float: right;">
+                      Add Scratch Card &nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                    </div>
+                  </div>         
+                </div>
+              </div>
+
+            <div class="row rowsettings">
+                <nav ngbNav #nav="ngbNav" class="nav-tabs mt-3">
+                    <ng-container ngbNavItem>
+                        <a ngbNavLink>Scratch Cards</a>
+                        <ng-template ngbNavContent>
+                            <app-active-scratch-card></app-active-scratch-card>
+                        </ng-template>
+                    </ng-container>
+                    <ng-container ngbNavItem  *ngIf="user.canViewPatronScratchCard">
+                        <a ngbNavLink>Patrons</a>
+                        <ng-template ngbNavContent>
+                            <app-patron-scratch-card></app-patron-scratch-card>
+                        </ng-template>
+                    </ng-container>
+                    <ng-container ngbNavItem *ngIf="user.canViewScratchCardWinners">
+                        <a ngbNavLink>Winners</a>
+                        <ng-template ngbNavContent>
+                            <app-scratch-card-winners></app-scratch-card-winners>
+                        </ng-template>
+                    </ng-container>
+                    <ng-container ngbNavItem>
+                        <a ngbNavLink>System Messages</a>
+                        <ng-template ngbNavContent>
+                            <app-message-settings></app-message-settings>
+                        </ng-template>
+                    </ng-container>
+                </nav>
+                <div [ngbNavOutlet]="nav" class="tabContentStyle"></div>
+            </div>
+        </div>
+    </div>
+</div>

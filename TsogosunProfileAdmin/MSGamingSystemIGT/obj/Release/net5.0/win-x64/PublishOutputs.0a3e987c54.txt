@@ -1,0 +1,12 @@
+C:\Projects\Source\MSGamingSystemIGT\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\tsogosun.com.MSGamingSystemIGT.exe
+C:\Projects\Source\MSGamingSystemIGT\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\appsettings.Development.json
+C:\Projects\Source\MSGamingSystemIGT\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\appsettings.json
+C:\Projects\Source\MSGamingSystemIGT\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\tsogosun.com.MSGamingSystemIGT.dll
+C:\Projects\Source\MSGamingSystemIGT\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\tsogosun.com.MSGamingSystemIGT.deps.json
+C:\Projects\Source\MSGamingSystemIGT\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\tsogosun.com.MSGamingSystemIGT.runtimeconfig.json
+C:\Projects\Source\MSGamingSystemIGT\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\tsogosun.com.MSGamingSystemIGT.pdb
+C:\Projects\Source\MSGamingSystemIGT\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Projects\Source\MSGamingSystemIGT\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\Newtonsoft.Json.dll
+C:\Projects\Source\MSGamingSystemIGT\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Projects\Source\MSGamingSystemIGT\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Projects\Source\MSGamingSystemIGT\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

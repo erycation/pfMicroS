@@ -1,0 +1,20 @@
+.mat-button.mat-danger,
+.mat-stroked-button.mat-danger {
+    color: white;
+}
+.mat-button.mat-danger:hover,
+.mat-stroked-button.mat-danger:hover {
+  background-color: red;
+}
+
+.mat-raised-button.mat-danger,
+.mat-flat-button.mat-danger,
+.mat-fab.mat-danger,
+.mat-mini-fab.mat-danger {
+  color: white;
+  background-color: red;
+}
+
+.mat-icon-button.mat-danger {
+  color:white;
+}

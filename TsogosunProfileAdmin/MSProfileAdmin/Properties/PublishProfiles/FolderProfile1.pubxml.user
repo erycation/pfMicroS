@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\BuildProjects\MSProfileAdmin</_PublishTargetUrl>
+    <History>True|2022-06-21T13:08:24.2281588Z;True|2022-06-08T06:49:30.1068587+02:00;True|2022-05-20T12:53:18.7023928+02:00;True|2022-05-04T10:30:31.8196972+02:00;True|2022-05-04T10:11:43.5538607+02:00;True|2022-05-04T09:12:55.5882244+02:00;True|2022-03-29T09:27:28.5162388+02:00;True|2022-03-14T10:14:18.9666657+02:00;True|2022-03-14T10:03:25.1538709+02:00;</History>
+  </PropertyGroup>
+</Project>

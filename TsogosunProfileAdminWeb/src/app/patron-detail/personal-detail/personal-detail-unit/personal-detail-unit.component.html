@@ -1,0 +1,358 @@
+<mat-accordion>
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+      <mat-expansion-panel-header class="panelHeaderCss">
+        <mat-panel-title>
+          <b>Personal Information</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <br/>
+      <div class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+            Patron ID
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control form-control-sm" type="text" readonly [ngModel]="patronDetailsSiteDto?.patronID">
+        </div>
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+            Hosted By
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control form-control-sm" type="text" readonly [ngModel]="patronDetailsSiteDto?.hostedBy">
+        </div>
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+            Customer Status
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control form-control-sm" type="text" readonly style="color: white;"
+            [ngStyle]="{'background-color':patronDetailsSiteDto?.profileStatus === 'Active' ? 'green' : 'red' }"
+            [ngModel]="patronDetailsSiteDto?.profileStatus" >
+        </div>
+    </div>
+
+    <div class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+            Title
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control form-control-sm" type="text" readonly
+            [ngModel]="patronDetailsSiteDto?.title">
+        </div>
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+            First Name
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control form-control-sm" type="text" readonly
+                [ngModel]="patronDetailsSiteDto?.firstName">
+        </div>
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+            Last Name
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control form-control-sm" type="text" readonly
+                [ngModel]="patronDetailsSiteDto?.lastName">
+        </div>
+    </div>
+
+    <div class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+            Middle Name
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control form-control-sm" type="text" readonly
+                [ngModel]="patronDetailsSiteDto?.middleName">
+        </div>
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+            Date of Birth
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control form-control-sm" type="text" readonly
+                [ngModel]="patronDetailsSiteDto?.dateOfBirth">
+        </div>
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+            Preferred Name
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control form-control-sm" type="text" readonly>
+        </div>
+    </div>
+
+    <div class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+            ID Number
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control form-control-sm" type="text" readonly
+                [ngModel]="patronDetailsSiteDto?.identityNumber">
+        </div>
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+            ID Type
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control form-control-sm" type="text" readonly >
+        </div>
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+            Country of Issue
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control form-control-sm" type="text" readonly [ngModel]="patronDetailsSiteDto?.iDCountry">
+        </div>
+    </div>
+
+    <div class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+            ID Expiry Date
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control form-control-sm" type="text" readonly [ngModel]="patronDetailsSiteDto?.iDExpiryDate">
+        </div>
+        <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+            Nationality
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control form-control-sm" type="text" readonly >
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+<br />
+
+<mat-accordion style="margin-bottom:2px;">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header class="panelHeaderCss">
+            <mat-panel-title>
+                <b>Contact Information</b>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <br/>
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Cell Number
+            </div>
+            <div class="col-sm-2">
+                <input class="form-control form-control-sm" type="text" readonly
+                    [ngModel]="patronDetailsSiteDto?.cellNumber">
+            </div>
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Alternative Number
+            </div>
+            <div class="col-sm-2">
+                <input class="form-control form-control-sm" type="text" readonly [ngModel]="patronDetailsSiteDto?.homeNumber">
+            </div>
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Alternative Number
+            </div>
+            <div class="col-sm-2">
+                <input class="form-control form-control-sm" type="text" readonly [ngModel]="patronDetailsSiteDto?.officeNumber">
+            </div>
+        </div>
+
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Email Address
+            </div>
+            <div class="col-sm-2">
+                <input class="form-control form-control-sm" type="text" readonly [ngModel]="patronDetailsSiteDto?.homeEmail">
+            </div>
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Alternative Email
+            </div>
+            <div class="col-sm-2">
+                <input class="form-control form-control-sm" type="text" readonly [ngModel]="patronDetailsSiteDto?.officeEmail">
+            </div>
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-2">
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<br/>
+
+<mat-accordion style="margin-bottom:2px;">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header class="panelHeaderCss">
+            <mat-panel-title>
+                <b>Communication</b>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <br/>
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings"> 
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Allow Communications
+            </div>
+            <div class="col-sm-2">
+                <input class="form-control form-control-sm" type="text" readonly
+                    [ngModel]="patronDetailsSiteDto?.allowComms">
+            </div>
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                SMS
+            </div>
+            <div class="col-sm-2">
+                <input class="form-control form-control-sm" type="text" readonly
+                    [ngModel]="patronDetailsSiteDto?.allowSMS">
+            </div>
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Email
+            </div>
+            <div class="col-sm-2">
+                <input class="form-control form-control-sm" type="text" readonly
+                    [ngModel]="patronDetailsSiteDto?.allowEmail">
+            </div>
+        </div>
+
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Phone
+            </div>
+            <div class="col-sm-2">
+                <input class="form-control form-control-sm" type="text" readonly
+                    [ngModel]="patronDetailsSiteDto?.allowPhone">
+            </div>
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Mail
+            </div>
+            <div class="col-sm-2">
+                <input class="form-control form-control-sm" type="text" readonly
+                    [ngModel]="patronDetailsSiteDto?.allowMail">
+            </div>
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-2">
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
+<br/>
+
+<mat-accordion style="margin-bottom:2px;">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header class="panelHeaderCss">
+            <mat-panel-title>
+                <b>Employment</b>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <br/>
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                PIP/PEP 
+            </div>
+            <div class="col-sm-4">
+                <input class="form-control form-control-sm" type="text" readonly  [ngModel]="patronDetailsSiteDto?.pipPep">
+            </div>
+            <div class="col-sm-6"></div>
+            </div>
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Employer
+            </div>
+            <div class="col-sm-4">
+                <input class="form-control form-control-sm" type="text" readonly  [ngModel]="patronDetailsSiteDto?.employer">
+            </div>
+            <div class="col-sm-6"></div>
+        </div>
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Occupation
+            </div>
+            <div class="col-sm-4">
+                <input class="form-control form-control-sm" type="text" readonly  [ngModel]="patronDetailsSiteDto?.occupation">
+            </div>
+            <div class="col-sm-6"></div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
+<br/>
+
+<mat-accordion style="margin-bottom:2px;">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header class="panelHeaderCss">
+            <mat-panel-title>
+                <b>Address</b>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <br/>
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Address Line 1
+            </div>
+            <div class="col-sm-10">
+                <input class="form-control form-control-sm" type="text" readonly  [ngModel]="patronDetailsSiteDto?.phyAddressLine1">
+            </div>
+        </div>
+
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Address Line 2
+            </div>
+            <div class="col-sm-10">
+                <input class="form-control form-control-sm" type="text" readonly  [ngModel]="patronDetailsSiteDto?.phyAddressLine2">
+            </div>
+        </div>
+
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Suburb
+            </div>
+            <div class="col-sm-4">
+                <input class="form-control form-control-sm" type="text" readonly  [ngModel]="patronDetailsSiteDto?.phyAddressSuburb">
+            </div>
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                City
+            </div>
+            <div class="col-sm-4">
+                <input class="form-control form-control-sm" type="text" readonly  [ngModel]="patronDetailsSiteDto?.phyAddressCity">
+            </div>
+        </div>
+
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Province
+            </div>
+            <div class="col-sm-2">
+                <input class="form-control form-control-sm" type="text" readonly  [ngModel]="patronDetailsSiteDto?.phyAddressState">
+            </div>
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Country
+            </div>
+            <div class="col-sm-2">
+                <input class="form-control form-control-sm" type="text" readonly  [ngModel]="patronDetailsSiteDto?.phyAddressCountry">
+            </div>
+            <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                Zip Code
+            </div>
+            <div class="col-sm-2">
+                <input class="form-control form-control-sm" type="text" readonly  [ngModel]="patronDetailsSiteDto?.phyAddressZipCode">
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<br/>
+
+<mat-accordion style="margin-bottom:2px;">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header class="panelHeaderCss">
+            <mat-panel-title>
+                <b>Mobile App Preferences</b>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <br/>
+        <div *ngFor="let communicationPreference of communicationPreferenceDto">
+            <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                    {{communicationPreference.messageCategory}}
+                </div>
+                <div class="col-sm-10" style="text-align: left;padding-left: 20px;">
+                    <b [ngStyle]="{'color':communicationPreference?.status === 'Yes' ? 'green' : 'red' }">
+                        {{communicationPreference.status}}</b>
+                </div>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

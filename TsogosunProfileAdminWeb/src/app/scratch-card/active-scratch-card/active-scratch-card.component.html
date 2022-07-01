@@ -1,0 +1,73 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header class="panelHeaderCss">
+      <mat-panel-title>
+        <b>Scratch Cards</b>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <br />
+    <div class="row rowPaddingSpacesettings">
+      <div class="col-md-4">
+        Unit<br />
+        <ng-select [items]="userSites" [virtualScroll]="true" appendTo="body" bindLabel="siteFullName"
+          bindValue="siteID" placeholder="Select Unit" [(ngModel)]="siteId">
+        </ng-select>
+      </div>
+      <div class="col-md-2">
+        <br />
+        <button type="button" class="btn btn-secondary statusBtnWidth" (click)="searchActiveScratchCards()">
+          Search &nbsp;<i class="fa fa-search" aria-hidden="true" style="color:white"></i>
+        </button>
+      </div>
+      <div class="col-md-6"></div>
+    </div>
+    <br />
+    <div class="row rowPaddingSpacesettings">
+      <table class="table table-bordered" style="margin-bottom: 0px;">
+        <thead style="background-color: #eee;">
+          <tr>
+            <th>Scratch Card Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Background Image</th>
+            <th>Tile Image</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let scratchCard of scratchCardDtoItems">
+          <tr>
+            <td>{{scratchCard.description}}</td>
+            <td>{{scratchCard.startDateTime | date: 'd MMM yyyy'}}</td>
+            <td>{{scratchCard.endDateTime | date: 'd MMM yyyy'}}</td>
+            <td>
+              <button type="button" class="btn btn-link pl-1" (click)="goToLink(scratchCard.scratchCardImage)">
+                <i class="fa fa-eye" aria-hidden="true" style="color: blue;"></i>
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-link pl-1" (click)="goToLink(scratchCard.tileImagePath)">
+                <i class="fa fa-eye" aria-hidden="true" style="color: blue;"></i>
+              </button>
+            </td>
+            <td>
+              <b [ngStyle]="{'color':scratchCard?.status === 'Active' ? 'green' : 'red' }">{{scratchCard.status}}</b>
+            </td>
+            <td><button type="button" class="btn btn-link pl-1" (click)="goToModifyScratchCard(scratchCard)" *ngIf="canEditScracthCard(scratchCard.siteId)">
+                <i class="fa fa-edit" aria-hidden="true" style="color: blue;" ></i>
+              </button></td>
+          </tr>
+        </tbody>
+      </table>
+      <p *ngIf="showNoResultsMessage"
+        style="text-align: center;border:solid 1px #eee;padding: 10px;margin: 0px;color: red;">
+        {{resultsMessage}}</p>
+
+      <div class="row rowPaddingSpacesettings">
+        <div class="text-center">
+          <jw-pagination [items]="scratchCardDto" (changePage)="onChangePage($event)"></jw-pagination>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

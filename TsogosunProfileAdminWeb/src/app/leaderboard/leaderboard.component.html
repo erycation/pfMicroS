@@ -1,0 +1,43 @@
+<div class="row" style="margin: 0px; padding : 2px;">
+    <div class="card zeroPaddingMarginSetting" style="margin:0px;padding: 0px;">
+        <div class="card-header" style="text-align: center;padding-top: 5px;padding-bottom: 5px;">
+            <h5 style="text-align: left;padding: 2px;">Leader Board
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="row rowActionButtonSetting">
+                <div class="col-sm-9"></div>
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-outline-primary statusBtnWidth"
+                                (click)="goToPageNoParams('add-group-leaderboard')" *ngIf="canAddLeaderboardGroup"
+                                style="float: right;">
+                                Add Group&nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-outline-primary statusBtnWidth"
+                                (click)="goToPageNoParams('add-leaderboard')" *ngIf="canAddLeaderboardLocal"
+                                style="float: right;">
+                                Add Local&nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row rowsettings">
+                <nav ngbNav #nav="ngbNav" class="nav-tabs mt-3">
+                    <ng-container ngbNavItem>
+                        <a ngbNavLink>Promotions</a>
+                        <ng-template ngbNavContent>
+                            <app-leaderboard-promotion></app-leaderboard-promotion>
+                        </ng-template>
+                    </ng-container>
+                </nav>
+                <div [ngbNavOutlet]="nav" class="tabContentStyle"></div>
+            </div>
+        </div>
+    </div>
+</div>

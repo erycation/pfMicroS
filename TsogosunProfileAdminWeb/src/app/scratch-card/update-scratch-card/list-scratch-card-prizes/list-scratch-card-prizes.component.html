@@ -1,0 +1,64 @@
+<mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header class="panelHeaderCss">
+        <mat-panel-title>
+          <b>Prizes</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="row rowPaddingSpacesettings">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-outline-primary statusBtnWidth" style="float: right;" (click)="configureScratchPrizeCard()">
+            Add Prize &nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <div class="row rowPaddingSpacesettings">
+        <table class="table table-bordered" style="margin-bottom: 0px;">
+          <thead style="background-color: #eee;">
+            <tr>
+              <th>Type</th>
+              <th>Total Prizes</th>
+              <th>Prizes Available</th>
+              <th>Start Rank</th>
+              <th>End Rank</th>
+              <th>Winning Message</th>
+              <th>Winning Tile</th>
+              <th>Regret Message</th>
+              <th>Regret Tile</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+            <tbody *ngFor="let scratchCardPrize of scratchCardPrizes ">
+            <tr>
+              <td>{{scratchCardPrize.priceDescription}}</td>
+              <td>{{scratchCardPrize.numberOfPrizes}}</td>
+              <td>{{scratchCardPrize.prizesAvailable}}</td>              
+              <td>{{scratchCardPrize.startRankID}}</td>
+              <td>{{scratchCardPrize.endRankID}}</td>
+              <td>{{scratchCardPrize.winningMessage}}</td>
+              <td>
+                <button type="button" class="btn btn-link pl-1" (click) = "goToLink(scratchCardPrize.winingImagePath)">
+                  <i class="fa fa-eye" aria-hidden="true" style="color: blue;"></i>
+                </button>
+            </td>
+            <td>{{scratchCardPrize.regretMessage}}</td>
+              <td>
+                <button type="button" class="btn btn-link pl-1" (click) = "goToLink(scratchCardPrize.losingTileImagePath)">
+                  <i class="fa fa-eye" aria-hidden="true" style="color: blue;"></i>
+                </button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-link pl-1" >
+                  <i class="fa fa-pencil" aria-hidden="true" style="color: blue;" (click) = "openUpdateConfigurePrizeModal(scratchCardPrize)"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p *ngIf="showNoResultsMessage"
+            style="text-align: center;border:solid 1px #eee;padding: 10px;margin: 0px;color: red;">
+            {{resultsMessage}}</p>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>

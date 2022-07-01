@@ -1,0 +1,15 @@
+C:\ProjectSVN\trunk\TsogosunProfileAdmin\TsogosunProfileAdmin\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\tsogosun.com.MSGamingSystemIGT.exe
+C:\ProjectSVN\trunk\TsogosunProfileAdmin\TsogosunProfileAdmin\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\appsettings.Development.json
+C:\ProjectSVN\trunk\TsogosunProfileAdmin\TsogosunProfileAdmin\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\appsettings.json
+C:\ProjectSVN\trunk\TsogosunProfileAdmin\TsogosunProfileAdmin\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\tsogosun.com.MSGamingSystemIGT.dll
+C:\ProjectSVN\trunk\TsogosunProfileAdmin\TsogosunProfileAdmin\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\tsogosun.com.MSGamingSystemIGT.deps.json
+C:\ProjectSVN\trunk\TsogosunProfileAdmin\TsogosunProfileAdmin\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\tsogosun.com.MSGamingSystemIGT.runtimeconfig.json
+C:\ProjectSVN\trunk\TsogosunProfileAdmin\TsogosunProfileAdmin\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\tsogosun.com.MSGamingSystemIGT.pdb
+C:\ProjectSVN\trunk\TsogosunProfileAdmin\TsogosunProfileAdmin\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\ProjectSVN\trunk\TsogosunProfileAdmin\TsogosunProfileAdmin\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\Microsoft.OpenApi.dll
+C:\ProjectSVN\trunk\TsogosunProfileAdmin\TsogosunProfileAdmin\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\Newtonsoft.Json.dll
+C:\ProjectSVN\trunk\TsogosunProfileAdmin\TsogosunProfileAdmin\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\ProjectSVN\trunk\TsogosunProfileAdmin\TsogosunProfileAdmin\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\ProjectSVN\trunk\TsogosunProfileAdmin\TsogosunProfileAdmin\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\ProjectSVN\trunk\TsogosunProfileAdmin\TsogosunProfileAdmin\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\tsogosun.com.GamingSystemIGT.dll
+C:\ProjectSVN\trunk\TsogosunProfileAdmin\TsogosunProfileAdmin\MSGamingSystemIGT\obj\Release\net5.0\win-x64\PubTmp\Out\tsogosun.com.GamingSystemIGT.pdb

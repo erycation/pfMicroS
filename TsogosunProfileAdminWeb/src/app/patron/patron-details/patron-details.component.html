@@ -1,0 +1,155 @@
+<div class="row vh-10 d-flex justify-content-center align-items-center" style="margin: 0px; padding : 2px;">
+    <div class="card zeroPaddingMarginSetting" style="margin:0px;padding: 0px;">
+      <div class="card-header" style="text-align: center;padding-top: 5px;padding-bottom: 5px;">
+        <h5 style="text-align: left;padding: 2px;">
+          <i class="fa fa-user fa-md" aria-hidden="true" style="color:#6c757d"></i>&nbsp;Patron Registration
+        </h5>
+      </div>
+      <div class="card-body">
+  
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        
+          <div class="col-md-3">
+            Unit<br />
+            <ng-select [items]="userSites" [virtualScroll]="true" bindLabel="siteFullName" bindValue="siteID"
+              placeholder="Select Unit" [(ngModel)]="requestPatronDetails.siteId">
+            </ng-select>
+          </div>
+  
+          <div class="col-md-3">
+            ID/Passport Number<br />
+            <input class="form-control" type="text" [(ngModel)]="requestPatronDetails.idpassport">
+          </div>
+  
+          <div class="col-sm-3">
+            Cell Number<br />
+            <input class="form-control" type="text" [(ngModel)]="requestPatronDetails.mobileNumber">
+          </div>
+          <div class="col-sm-3" style="text-align: center;">
+            <br />
+            <button type="button" class="btn btn-secondary statusBtnWidth" (click)="searchPatronDetails()">
+              Search &nbsp;<i class="fa fa-search" aria-hidden="true" style="color:white"></i>
+            </button>
+          </div>
+        </div>
+        <br />
+        <div class="row rowsettings">
+            <nav ngbNav #nav="ngbNav"  [(activeId)]="active" class="nav-tabs mt-3">
+              <!--<ng-container [ngbNavItem] ="1">
+                <a ngbNavLink>New Records</a>
+                <ng-template ngbNavContent>
+                  <app-patron-details-new-record [siteId]="siteId" [idNumber]="idNumber" [mobileNumber]="mobileNumber"></app-patron-details-new-record>
+                </ng-template>
+              </ng-container>-->
+
+
+              <ng-container [ngbNavItem] ="1">
+                <a ngbNavLink>New Records</a>
+                <ng-template ngbNavContent>
+                    <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                        <table class="table table-bordered" style="margin-bottom: 0px;">
+                          <thead style="background-color: #eee;">
+                            <tr>
+                              <th>ID/Passport No</th>
+                              <th>Cell Number</th>              
+                              <th>First Name</th>
+                              <th>Last Name</th>
+                              <th>Rating</th>
+                              <th>Status</th>
+                              <th>Created Date</th>
+                              <th>Record Status</th>                              
+                              <th style="text-align: center;">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody *ngFor="let patronDetail of patronDetailsDtoItems">
+                            <tr>
+                              <td>{{patronDetail.idpassportNO}}</td>
+                              <td>{{patronDetail.mobileNumber}}</td>           
+                              <td>{{patronDetail.firstName}}</td>
+                              <td>{{patronDetail.lastName}}</td>
+                              <td>{{patronDetail.rating}} </td>
+                              <td>{{patronDetail.status}}</td>
+                              <td>{{patronDetail.createdDate | date: 'd MMM yyyy'}}</td>
+                              <td>{{patronDetail.recordStatus}}</td>                              
+                              <td>
+                                <button type="button" class="btn btn-link pl-1" (click)="goToUpdatePatronDetail(patronDetail)">
+                                  <i class="fa fa-edit" aria-hidden="true" style="color: blue;"></i>
+                                </button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <p *ngIf="showNoResultsMessage" style="text-align: center;border:solid 1px #eee;padding: 10px;margin: 0px;color: red;">{{resultsMessage}}</p>
+                        <div class="row rowPaddingSpacesettings">
+                          <div class="text-center">
+                            <jw-pagination [items]="newRecordPatronDetailsDto" (changePage)="onChangePage($event)"></jw-pagination>
+                          </div>
+                        </div>
+                      </div>
+                </ng-template>
+              </ng-container>
+    
+              <ng-container [ngbNavItem] ="2">
+                <a ngbNavLink>In Progress</a>
+                <ng-template ngbNavContent>
+                    <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                        <table class="table table-bordered" style="margin-bottom: 0px;">
+                          <thead style="background-color: #eee;">
+                            <tr>
+                              <th>ID/Passport No</th>
+                              <th>Cell Number</th>              
+                              <th>First Name</th>
+                              <th>Last Name</th>
+                              <th>Rating</th>
+                              <th>Status</th>
+                              <th>Created Date</th>
+                              <th>Record Status</th>
+                              <th>Allocated User</th>
+                              <th style="text-align: center;">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody *ngFor="let patronDetail of patronDetailsDtoItems">
+                            <tr>
+                              <td>{{patronDetail.idpassportNO}}</td>
+                              <td>{{patronDetail.mobileNumber}}</td>           
+                              <td>{{patronDetail.firstName}}</td>
+                              <td>{{patronDetail.lastName}}</td>
+                              <td>{{patronDetail.rating}} </td>                              
+                              <td>{{patronDetail.status}}</td>
+                              <td>{{patronDetail.createdDate | date: 'd MMM yyyy'}}</td>
+                              <td>{{patronDetail.recordStatus}}</td>    
+                              <td>
+                                <b  [ngStyle]="{'color':canAccessInprogressRecord(patronDetail.allocatedUser) ? 'green' : 'red' }">
+                                   {{patronDetail.allocatedUser}}
+                                </b>
+                              </td>   
+                              <td>
+                                <button type="button" class="btn btn-link pl-1" (click)="goToUpdatePatronDetail(patronDetail)" [disabled]="!canAccessInprogressRecord(patronDetail.allocatedUser)">
+                                  <i class="fa fa-edit" aria-hidden="true" style="color: blue;"></i>
+                                </button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <p *ngIf="showNoResultsMessagePlaceOnHoldTab" style="text-align: center;border:solid 1px #eee;padding: 10px;margin: 0px;color: red;">{{resultsMessagePlaceOnHoldTab}}</p>
+                        <div class="row rowPaddingSpacesettings">
+                          <div class="text-center">
+                            <jw-pagination [items]="placedOnHoldPatronDetailsDto" (changePage)="onChangePage($event)"></jw-pagination>
+                          </div>
+                        </div>
+                      </div>
+                </ng-template>
+              </ng-container> 
+              
+              <ng-container [ngbNavItem] ="3">
+                <a ngbNavLink>Approved</a>
+                <ng-template ngbNavContent>
+                  <app-patron-details-approved [siteId]="siteId"></app-patron-details-approved>
+                </ng-template>
+              </ng-container>
+            </nav>    
+            <div [ngbNavOutlet]="nav" class="tabContentStyle"></div>
+          </div>
+      </div>
+    </div>
+  </div>

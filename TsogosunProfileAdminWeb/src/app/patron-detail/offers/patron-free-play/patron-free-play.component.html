@@ -1,0 +1,93 @@
+<mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header class="panelHeaderCss">
+            <mat-panel-title>
+                <b>FreePlay</b>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <br />
+        <div class="row rowPaddingSpacesettings">
+            <div class="col-sm-4">
+                Unit<br />
+                <ng-select [items]="patronSites" bindLabel="siteName" placeholder="Select Unit"
+                    [(ngModel)]="patronSiteFreePlay" [virtualScroll]="true" appendTo="body">
+                </ng-select>
+
+            </div>
+            <div class="col-sm-3">
+                Start Date<br />
+                <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+                    [(bsValue)]="startDate"
+                    [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">
+            </div>
+            <div class="col-sm-3">
+                End Date<br />
+                <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+                    [(bsValue)]="endDate"
+                    [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">
+            </div>
+            <div class="col-sm-2"><br />
+                <button type="button" class="btn btn-secondary statusBtnWidth" (click)="searchFreePlay()">
+                    Search &nbsp;<i class="fa fa-search" aria-hidden="true" style="color:white"></i>
+                </button>
+            </div>
+        </div>
+        <br />
+        <div class="row rowPaddingSpacesettings" >
+            <div class="col-sm-4" style="text-align: right;"><i><b>Search FreePlay By Offer Status : </b></i></div>
+            <div class="col-sm-8">
+                <mat-radio-group [(ngModel)]="filterOfferStatus" aria-label="Select an option">
+                    <mat-radio-button value="all">All</mat-radio-button>
+                    <mat-radio-button value="Available">Available</mat-radio-button>
+                    <mat-radio-button value="Collected">Collected</mat-radio-button>
+                    <mat-radio-button value="Redeemed">Redeemed</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <br />
+        <div class="row rowPaddingSpacesettings">
+            <table class="table table-bordered" style="margin-bottom: 0px;">
+                <thead style="background-color: #eee;">
+                    <tr>
+                        <th>Offer Name</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Cost</th>
+                        <th>Expiry Date</th>
+                        <th>Redemption Type</th>
+                        <th>Offer Status</th>
+                        <th>Take Up Meduim</th>
+                        <th>Date Received</th>
+                        <th>Loaded To</th>
+                        <th>Availability</th>
+                        <th>View OTP</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let patronFreePlay of patronFreePlayDto | freeplaypipe : filterOfferStatus">
+                    <tr>
+                        <td>{{patronFreePlay.xtraCreditFullDescription}}</td>
+                        <td>{{patronFreePlay.startDate | date: 'd MMM yyyy'}}</td>
+                        <td>{{patronFreePlay.endDate | date: 'd MMM yyyy'}}</td>
+                        <td>{{patronFreePlay.cost}}</td>
+                        <td>{{patronFreePlay.expiryDate | date: 'd MMM yyyy'}}</td>
+                        <td>{{patronFreePlay.redemptionType}}</td>
+                        <td>{{patronFreePlay.offerStatus}}</td>
+                        <td>{{patronFreePlay.takeupMedium}}</td>
+                        <td>{{patronFreePlay?.dateReceived | date: 'd MMM yyyy h:mm:ss a'}}</td>
+                        <td>{{patronFreePlay.loadedTo}}</td>
+                        <td>{{patronFreePlay.offerAvailability}}</td>
+                        <td>
+                            <button type="button" class="btn btn-link pl-1"  *ngIf="canViewOTPNumber(patronFreePlay.otpNumber)"
+                                (click)="openOTPNUmberModal(patronFreePlay)">
+                                <i class="fa fa-eye" aria-hidden="true" style="color: blue;"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p *ngIf="showNoResultsMessage"
+                style="text-align: center;border:solid 1px #eee;padding: 10px;margin: 0px;color: red;">
+                {{resultsMessage}}</p>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

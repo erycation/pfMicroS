@@ -1,0 +1,83 @@
+<mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header class="panelHeaderCss">
+            <mat-panel-title>
+                <b>Promotions</b>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <br />
+        <div class="row rowPaddingSpacesettings">
+            <div class="col-md-4">
+                Unit<br />
+                <ng-select [items]="userSites" [virtualScroll]="true" appendTo="body" bindLabel="siteFullName"
+                    bindValue="siteID" placeholder="Select Unit" [(ngModel)]="siteId">
+                </ng-select>
+            </div>
+            <div class="col-sm-3">
+                Start Date<br />
+                <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+                    [(bsValue)]="startDate"
+                    [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">
+            </div>
+            <div class="col-sm-3">
+                End Date<br />
+                <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+                    [(bsValue)]="endDate"
+                    [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">
+            </div>
+            <div class="col-md-2">
+                <br />
+                <button type="button" class="btn btn-secondary statusBtnWidth" (click)="searchActiveScratchCards()">
+                    Search &nbsp;<i class="fa fa-search" aria-hidden="true" style="color:white"></i>
+                </button>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <br />
+        <div class="row rowPaddingSpacesettings">
+            <table class="table table-bordered" style="margin-bottom: 0px;">
+                <thead style="background-color: #eee;">
+                    <tr>
+                        <th>Name</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Type</th>
+                        <th>Start Rank</th>
+                        <th>End Rank</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let leaderBoardPromotion of leaderBoardPromotionDtoItems">
+                    <tr>
+                        <td>{{leaderBoardPromotion?.promotionName}}</td>
+                        <td>{{leaderBoardPromotion.startDate | date: 'd MMM yyyy'}}</td>
+                        <td>{{leaderBoardPromotion.endDate | date: 'd MMM yyyy'}}</td>
+                        <td>{{leaderBoardPromotion?.promotionType}}</td>
+                        <td>{{leaderBoardPromotion?.startRank}}</td>
+                        <td>{{leaderBoardPromotion?.endRank}}</td>
+                        <td>
+                            <b
+                                [ngStyle]="{'color':leaderBoardPromotion?.status === 'Active' ? 'green' : 'red' }">{{leaderBoardPromotion.status}}</b>
+                        </td>
+                        <td><button type="button" class="btn btn-link pl-1">
+                                <i class="fa fa-edit" aria-hidden="true" style="color: blue;"
+                                    (click)="goToModifyLeaderBoard(leaderBoardPromotion)"></i>
+                            </button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p *ngIf="showNoResultsMessage"
+                style="text-align: center;border:solid 1px #eee;padding: 10px;margin: 0px;color: red;">
+                {{resultsMessage}}</p>
+
+            <div class="row rowPaddingSpacesettings">
+                <div class="text-center">
+                    <jw-pagination [items]="leaderBoardPromotionDto" (changePage)="onChangePage($event)">
+                    </jw-pagination>
+                </div>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

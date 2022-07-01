@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\BuildProjects\MSMDMPatron</_PublishTargetUrl>
+    <History>True|2022-02-24T08:47:33.9154447Z;True|2022-02-03T09:58:35.6332962+02:00;True|2022-01-31T14:37:22.4770745+02:00;True|2022-01-28T17:31:57.2382206+02:00;True|2022-01-28T09:30:24.1588970+02:00;True|2022-01-27T01:48:27.1143506+02:00;True|2022-01-26T14:56:30.7563633+02:00;True|2022-01-21T14:40:20.7325210+02:00;True|2022-01-12T11:45:44.9700004+02:00;True|2021-12-02T13:05:19.6232297+02:00;True|2021-12-01T16:49:06.5623809+02:00;True|2021-11-17T19:09:06.0698415+02:00;True|2021-11-17T18:40:37.9199882+02:00;True|2021-11-17T17:36:49.6134864+02:00;True|2021-11-08T16:39:11.6926384+02:00;True|2021-11-02T19:03:47.8912905+02:00;True|2021-10-28T16:33:45.6674918+02:00;</History>
+  </PropertyGroup>
+</Project>

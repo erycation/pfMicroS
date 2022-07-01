@@ -1,0 +1,59 @@
+<mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header class="panelHeaderCss">
+            <mat-panel-title>
+                <b>Patron</b>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <br />
+        <div class="row rowPaddingSpacesettings">
+            <div class="col-sm-4">
+                Unit<br />
+                <ng-select [items]="patronSites" bindLabel="siteName" placeholder="Select Unit"
+                    [(ngModel)]="patronSite" [virtualScroll]="true" appendTo="body">
+                </ng-select>
+
+            </div>
+            
+            <div class="col-sm-2"><br />
+                <button type="button" class="btn btn-secondary statusBtnWidth" (click)="searchPatronScratchCard()">
+                    Search &nbsp;<i class="fa fa-search" aria-hidden="true" style="color:white"></i>
+                </button>
+            </div>
+            <div class="col-sm-6">               
+            </div>
+        </div>
+        <br />
+        
+        <div class="row rowPaddingSpacesettings">
+            <table class="table table-bordered" style="margin-bottom: 0px;">
+                <thead style="background-color: #eee;">
+                    <tr>
+                        <th>Scratch Card Name</th>
+                        <th>Date Collected</th>
+                        <th>Tile Selected</th>
+                        <th>Winning Tile Location</th>
+                        <th>Winner</th>                        
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let patronScratchCard of patronScratchCardDto">
+                    <tr>
+                        <td>{{patronScratchCard.scratchCard}}</td>                        
+                        <td>{{patronScratchCard.dateInserted | date: 'd MMM yyyy'}}</td>
+                        <td>{{patronScratchCard.tileSelected}}</td>
+                        <td>{{patronScratchCard.winningTileLocation}}</td>
+                        <td>
+                            <b [ngStyle]="{'color':patronScratchCard?.winnerStatus === 'Yes' ? 'green' : 'red' }">{{patronScratchCard.winnerStatus}}</b>
+                        </td>
+                        <td>{{patronScratchCard.messageReturned}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p *ngIf="showNoResultsMessage"
+                style="text-align: center;border:solid 1px #eee;padding: 10px;margin: 0px;color: red;">
+                {{resultsMessage}}</p>
+        </div>
+        
+    </mat-expansion-panel>
+</mat-accordion>

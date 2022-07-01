@@ -1,0 +1,35 @@
+
+<div class="row" >
+    <nav ngbNav #nav="ngbNav" class="nav-tabs mt-3">
+        <ng-container ngbNavItem>
+          <a ngbNavLink>Draws</a>
+          <ng-template ngbNavContent>
+            <app-patron-draw [tsogosunId]="tsogosunId"></app-patron-draw>
+          </ng-template>
+        </ng-container>
+        
+          <ng-container ngbNavItem>
+            <a ngbNavLink>Free Play</a>
+            <ng-template ngbNavContent>
+              <app-patron-free-play [tsogosunId]="tsogosunId"></app-patron-free-play>
+            </ng-template>
+          </ng-container>
+                   
+          <ng-container ngbNavItem>
+            <a ngbNavLink>Voucher</a>
+            <ng-template ngbNavContent>
+              <app-patron-voucher [tsogosunId]="tsogosunId"></app-patron-voucher>
+            </ng-template>
+          </ng-container>
+         
+      </nav>
+      <!--<div [ngbNavOutlet]="nav" class="mt-2" style="border: solid 1px lightgray;margin-top: 0rem;"></div>-->
+      <div [ngbNavOutlet]="nav" class="tabContentStyle"></div>
+  </div>
+
+
+
+
+
+
+

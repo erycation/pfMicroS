@@ -1,0 +1,21 @@
+
+
+import { Injectable } from '@angular/core';
+import { RequestAddUpdatePlayerProfile } from 'src/app/model/request/igt-gaming-system/request-add-updatePlayerProfile';
+import { BackendService } from 'src/app/util/backend.service';
+
+
+@Injectable({
+    providedIn: 'root'
+})
+export class IGTGamingSystemService {
+
+    constructor(private backend: BackendService) {
+
+    }
+
+    async createIGTProfileAccount(requestAddUpdatePlayerProfile: RequestAddUpdatePlayerProfile) {
+        return this.backend.postResponse<any>(`IGT/PlayerProfile/Add`, requestAddUpdatePlayerProfile);
+     }
+
+}

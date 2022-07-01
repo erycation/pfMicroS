@@ -1,0 +1,148 @@
+<div class="row" style="margin: 0px; padding : 2px;">
+  <div class="card zeroPaddingMarginSetting" style="margin:0px;padding: 0px;">
+    <div class="card-header" style="text-align: center;padding-top: 5px;padding-bottom: 5px;">
+      <h5 style="text-align: left;padding: 2px;">
+        <i class="fa fa-user fa-md" aria-hidden="true" style="color:#6c757d"></i>&nbsp;Update User
+      </h5>
+    </div>
+    <div class="card-body">
+      <div class="row rowActionButtonSetting">
+        <div class="col-sm-6"></div>
+        <div class="col-sm-6">
+          <button type="button" class="btn btn-outline-primary statusBtnWidth" (click)="goToPageNoParams('user-search')" 
+            style="float: right;">
+            View Users &nbsp;<i class="fa fa-users" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Unit</div>
+        <div class="col-md-5">
+          <input class="form-control" type="text" [(ngModel)]="edituser.siteFullName" readonly>
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Username</div>
+        <div class="col-md-5">
+          <input class="form-control" type="text" [(ngModel)]="edituser.username" readonly>
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Firstname</div>
+        <div class="col-md-5">
+          <input class="form-control" type="text" [(ngModel)]="edituser.firstname">
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Surname</div>
+        <div class="col-md-5">
+          <input class="form-control" type="text" [(ngModel)]="edituser.surname">
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Status</div>
+        <div class="col-md-2">
+          <ng-select [items]="user?.statusItems" [virtualScroll]="true" bindLabel="description"
+            placeholder="Select Status" bindValue="statusId" [(ngModel)]="edituser.isActive" (change)="changeStatus()">
+          </ng-select>
+        </div>
+        <div class="col-md-3">
+          <b [ngStyle]="{'color':edituser?.status === 'Active' ? 'green' : 'red' }">
+              {{edituser.status}}</b>
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-7"></div>
+        <div class="col-md-5">
+          <button type="button" class="btn btn-outline-success statusBtnWidth" (click)="updateUserDetails()"
+            style="float: left;">
+            Update Details &nbsp;<i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <br />
+
+      <mat-accordion >
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header class="panelHeaderCss">
+            <mat-panel-title>
+              <b>Add Section</b>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <br />
+          <div class="row rowPaddingSpacesettings">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+              Application
+              <ng-select [items]="user?.applications" [virtualScroll]="true" bindLabel="applicationName"
+                placeholder="Select Application" [(ngModel)]="application" (change)="populateSectionByApplication()" appendTo="body">
+              </ng-select>
+            </div>
+            <div class="col-md-3">
+              Section
+              <ng-select [items]="sections" [virtualScroll]="true" bindLabel="sectionName" placeholder="Select Section"
+                [(ngModel)]="section" (change)="populateUnitBySection()" appendTo="body">
+              </ng-select>
+            </div>
+            <div class="col-md-3">
+              Unit
+              <ng-select [items]="sectionSites" [virtualScroll]="true" bindLabel="siteFullName" placeholder="Select Unit"
+                [(ngModel)]="site" appendTo="body">
+              </ng-select>
+            </div>
+            <div class="col-md-2">
+              <br />
+              <button type="button" class="btn btn-outline-success statusBtnWidth" (click)="addUserPermission()"
+                style="float: left;">
+                Add &nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+          <br/>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <div>
+
+        <br />
+        <div class="row rowPaddingSpacesettings">
+          <mat-accordion *ngFor="let application of userApplicationSectionDto?.applications" >
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header class="panelHeaderCss">
+                <mat-panel-title>
+                  <b>{{application.applicationName}}</b>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <table class="table table-bordered" style="margin: 0px;width: 100%; padding: 0px;">
+                <tbody *ngFor="let section of application?.sections">
+                  <tr style="width: 100%;">
+                    <td style="width: 25%;"><b>{{section.sectionName}}</b></td>
+                    <td style="width: 75%;padding: 0px;">
+                      <div class="row" style="padding:10px;">
+                        <div class="col-md-3" *ngFor="let site of section.sites" style="padding:5px;">
+                          {{site.siteFullName}}
+                          <button type="button" class="btn btn-link pl-1" title="Unlink section to unit"
+                            *ngIf="canRemoveSectionFromUnit(section.sectionName, site.siteID)"
+                            (click)="unlinkSectionToUnit(application, section, site)">
+                            <i class="fa fa-unlink" aria-hidden="true" style="color:red"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </mat-expansion-panel>
+            <br />
+          </mat-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

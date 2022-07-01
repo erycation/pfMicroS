@@ -1,0 +1,398 @@
+<div class="row vh-10 d-flex justify-content-center align-items-center" style="margin: 0px; padding : 2px;">
+    <div class="card zeroPaddingMarginSetting" style="margin:0px;padding: 0px;">
+        <div class="card-header" style="text-align: center;padding-top: 5px;padding-bottom: 5px;">
+            <h5 style="text-align: left;padding: 2px;">
+                <i class="fa fa-user fa-md" aria-hidden="true" style="color:#6c757d"></i>&nbsp;Patron Details
+            </h5>
+        </div>
+        <div class="card-body">
+            <div
+                class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                    Originated From
+                </div>
+                <div class="col-sm-2">
+                    <input class="form-control form-control-sm" type="text" readonly
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.originatedFrom">
+                </div>
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                    Date Requested
+                </div>
+                <div class="col-sm-2">
+                    <div class="input-group">
+                        <input class="form-control form-control-sm" type="text" readonly [(ngModel)]="insertedDate">
+                        <button class="btn-sm btn-outline-secondary calendar" type="button" disabled>
+                            <i class="fa fa-calendar" aria-hidden="true" style="color: green;"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+            <div
+                class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                    Rank
+                </div>
+                <div class="col-sm-2">
+                    <input class="form-control form-control-sm" type="text" readonly
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.rating">
+                </div>
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                    Registered At Other Sites
+                </div>
+                <div class="col-sm-2">
+                    <input class="form-control form-control-sm" type="text" readonly
+                        [(ngModel)]="registeredOtherSitesDto.registeredSiteValue"
+                        [ngStyle]="{'color':'white','background-color':registeredOtherSitesDto.registeredSiteValue == 'Yes' ? 'red' : 'green' }">
+                </div>
+                <div class="col-sm-4"></div>
+
+            </div>
+            <br />
+            <b>Personal Details</b>
+            <br />
+            <mat-divider></mat-divider>
+            <br />
+            <div class="row" style="margin: 0px;padding:0px;">
+
+                <div class="col-sm-8" style="margin: 0px;padding:0px;">
+                    <div
+                        class="row  vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                        <div class="col-sm-3" style="text-align: right;padding-right: 10px;">
+                            First Name
+                        </div>
+                        <div class="col-sm-3">
+                            <input class="form-control form-control-sm" type="text"
+                                [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.firstName">
+                        </div>
+                        <div class="col-sm-3" style="text-align: right;padding-right: 10px;">
+                            Surname
+                        </div>
+                        <div class="col-sm-3">
+                            <input class="form-control form-control-sm" type="text"
+                                [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.lastName">
+                        </div>
+                    </div>
+
+                    <div
+                        class="row  vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                        <div class="col-sm-3" style="text-align: right;padding-right: 10px;">
+                            Title
+                        </div>
+                        <div class="col-sm-3">
+                            <ng-select [items]="titlesDto" [virtualScroll]="true" bindLabel="description"
+                                bindValue="description" placeholder="Select Title"
+                                [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.title">
+                            </ng-select>
+                        </div>
+                        <div class="col-sm-3" style="text-align: right;padding-right: 10px;">
+                            Gendar
+                        </div>
+                        <div class="col-sm-3">
+                            <ng-select [items]="user?.genders" [virtualScroll]="true" bindLabel="gender"
+                                bindValue="gender" placeholder="Select Gendar"
+                                [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.gender">
+                            </ng-select>
+                        </div>
+                    </div>
+
+                    <div
+                        class="row  vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                        <div class="col-sm-3" style="text-align: right;padding-right: 10px;">
+                            Nationality
+                        </div>
+                        <div class="col-sm-3">
+                            <input class="form-control form-control-sm" type="text"
+                                [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.nationality">
+                        </div>
+                        <div class="col-sm-3" style="text-align: right;padding-right: 10px;">
+                            ID/Passport Country
+                        </div>
+                        <div class="col-sm-3">
+                            <input class="form-control form-control-sm" type="text"
+                                [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.idPassCountry">
+                        </div>
+                    </div>
+
+                    <div
+                        class="row  vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                        <div class="col-sm-3" style="text-align: right;padding-right: 10px;">
+                            ID/Passport Number
+                        </div>
+                        <div class="col-sm-3">
+                            <input class="form-control form-control-sm" type="text"
+                                [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.idpassportNO">
+                        </div>
+                        <div class="col-sm-3" style="text-align: right;padding-right: 10px;">
+                            Birthday Date
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-sm" #dp="bsDatepicker"
+                                    mask="00/00/0000" bsDatepicker
+                                    [(bsValue)]="unconfirmedGMSPatronDetailsInfoDto.birthDate"
+                                    [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">
+                                <button class="btn-sm btn-outline-secondary" type="button" disabled>
+                                    <i class="fa fa-calendar" aria-hidden="true" style="color: green;"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+
+                        <div class="col-sm-3" style="text-align: right;padding-right: 10px;">
+                            Document Type
+                        </div>
+                        <div class="col-sm-6">
+                            <ng-select [items]="gmdocumentTypesDto" [virtualScroll]="true" bindLabel="documentType"
+                                placeholder="Select Document Type" [(ngModel)]="gmdocumentTypeDto"
+                                (change)="validateDocumentExpireDate()">
+                            </ng-select>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>
+
+                    <div
+                        class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                        <div class="col-sm-3" style="text-align: right;padding-right: 10px;">
+                            Expiry Date
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="input-group" *ngIf="documentHavExpiredDate">
+                                <input type="text" class="form-control form-control-sm" #dp="bsDatepicker"
+                                    mask="00/00/0000" bsDatepicker
+                                    [(bsValue)]="unconfirmedGMSPatronDetailsInfoDto.documentExpireDate"
+                                    [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">
+                                <button class="btn-sm btn-outline-secondary" type="button" disabled>
+                                    <i class="fa fa-calendar" aria-hidden="true" style="color: green;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-6"></div>
+                    </div>
+
+                </div>
+                <div class="col-sm-4" style="padding-left:10px;padding-top:1px;">
+                    <div class="col-sm-12" >
+                        <i class="fa fa-id-card" style="font-size:9.500em" *ngIf="showidPassImage"></i>                        
+                        <img [src]="unconfirmedGMSPatronDetailsInfoDto.idPassImage" style="height: 150px;width:250px;" *ngIf="!showidPassImage"/>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <b>Additional Information</b>
+            <br />
+            <mat-divider></mat-divider>
+            <br />
+            <div
+                class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                    PIPPEP
+                </div>
+                <div class="col-sm-2">
+                    <ng-select [items]="getGMSPipPepStatus" [virtualScroll]="true" bindLabel="pipPepStatusDesc"
+                        bindValue="pipPepStatusId" placeholder="Select PIPPEP Status"
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.pippep">
+                    </ng-select>
+                </div>
+                <div class="col-sm-8" style="text-align: right;padding-right: 10px;">
+                </div>
+            </div>
+
+            <div
+                class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                    Occupation
+                </div>
+                <div class="col-sm-6">
+                    <input class="form-control form-control-sm" type="text"
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.occupation">
+                </div>
+                <div class="col-sm-4">
+                </div>
+            </div>
+
+            <br />
+            <b>Contact Details</b>
+            <br />
+            <mat-divider></mat-divider>
+            <br />
+            <div
+                class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                    Communication Allowed
+                </div>
+                <div class="col-sm-1">
+                    <mat-checkbox class="example-margin" [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.preferredSms">
+                    </mat-checkbox>
+                    SMS
+                </div>
+                <div class="col-sm-2">
+                    <mat-checkbox class="example-margin"
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.preferredPhoneCall">
+                    </mat-checkbox> Phone Call
+                </div>
+                <div class="col-sm-1">
+                    <mat-checkbox class="example-margin"
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.preferredEmail">
+                    </mat-checkbox> Email
+                </div>
+                <div class="col-sm-1">
+                    <mat-checkbox class="example-margin" [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.preferredPost">
+                    </mat-checkbox> Post
+                </div>
+                <div class="col-sm-5">
+                </div>
+            </div>
+            <div
+                class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                    Mobile Number
+                </div>
+                <div class="col-sm-2">
+                    <input class="form-control form-control-sm" type="text"
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.mobileNumber">
+                </div>
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                    Email Address
+                </div>
+                <div class="col-sm-4">
+                    <input class="form-control form-control-sm" type="text"
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.emailAddress">
+                </div>
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                </div>
+            </div>
+            <br />
+            <b>Address</b>
+            <br />
+            <mat-divider></mat-divider>
+            <div
+                class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                <div class="col-sm-10">
+
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-outline-primary statusBtnWidth" style="float: right"
+                        (click)="openSearchAddressModal()">
+                        Verify Address &nbsp;<i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <br />
+            <div
+                class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                    House No And Street Name
+                </div>
+                <div class="col-sm-8">
+                    <input class="form-control form-control-sm" type="text"
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.address1">
+                </div>
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                </div>
+            </div>
+
+            <div
+                class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                    Complex/Building
+                </div>
+                <div class="col-sm-8">
+                    <input class="form-control form-control-sm" type="text"
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.address2">
+                </div>
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                </div>
+            </div>
+            <div
+                class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-2">
+                    Country
+                    <input class="form-control form-control-sm" type="text" readonly
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.country" readonly
+                        [ngStyle]="{'border-color':unconfirmedGMSPatronDetailsInfoDto?.isCountryCorrect ? 'green' : 'red' }">
+                </div>
+                <div class="col-sm-2">
+                    Province
+                    <input class="form-control form-control-sm" type="text" readonly
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.province" readonly
+                        [ngStyle]="{'border-color':unconfirmedGMSPatronDetailsInfoDto?.isProvinceCorrect ? 'green' : 'red' }">
+                </div>
+                <div class="col-sm-2">
+                    City
+                    <input class="form-control form-control-sm" type="text" readonly
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.city" readonly
+                        [ngStyle]="{'border-color':unconfirmedGMSPatronDetailsInfoDto?.isCityCorrect ? 'green' : 'red' }">
+                </div>
+                <div class="col-sm-2">
+                    Suburb
+                    <input class="form-control form-control-sm" type="text" readonly
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.suburb" readonly
+                        [ngStyle]="{'border-color':unconfirmedGMSPatronDetailsInfoDto?.isSuburbCorrect ? 'green' : 'red' }">
+                </div>
+                <div class="col-sm-2"> </div>
+            </div>
+            <div
+                class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-2">
+                    Postal Code
+                    <input class="form-control form-control-sm" type="text" readonly
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.postalCode" readonly
+                        [ngStyle]="{'border-color':unconfirmedGMSPatronDetailsInfoDto?.isPostalCodeCorrect ? 'green' : 'red' }">
+
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            <div
+                class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                    Notes
+                </div>
+                <div class="col-sm-6">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+                        [(ngModel)]="unconfirmedGMSPatronDetailsInfoDto.notes"></textarea>
+                </div>
+                <div class="col-sm-4">
+                </div>
+            </div>
+            <br />
+            <mat-divider></mat-divider>
+            <br />
+
+            <div
+                class="row vh-10 d-flex justify-content-center align-items-center vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+                <div class="col-sm-5">
+                </div>
+                <div class="col-sm-2" style="text-align: right;padding-right: 10px;">
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-outline-danger statusBtnWidth" style="float: right;"
+                        (click)="redirectToPage('patron-details')">
+                        Back
+                    </button>
+                </div>
+                <div class="col-sm-3">
+                    <button [disabled]="loading" type="button" class="btn btn-outline-success" style="float: right;"
+                        (click)="updatePatronDetails()">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Approve Patron Details
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

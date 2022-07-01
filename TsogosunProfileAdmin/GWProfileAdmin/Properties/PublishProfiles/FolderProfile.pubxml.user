@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\BuildProjects\GWProfileAdmin</_PublishTargetUrl>
+    <History>True|2022-02-03T07:59:22.8813096Z;True|2022-01-31T14:44:04.8600350+02:00;True|2022-01-28T17:31:30.3562577+02:00;True|2022-01-28T09:30:02.8587471+02:00;True|2022-01-27T01:47:55.3817409+02:00;True|2022-01-26T14:54:28.2021600+02:00;True|2022-01-24T08:55:08.3378273+02:00;True|2022-01-21T15:07:00.0548396+02:00;True|2022-01-12T11:40:59.8803612+02:00;True|2021-11-02T19:28:05.3928991+02:00;True|2021-11-02T19:01:49.8020387+02:00;True|2021-10-28T16:35:49.2898095+02:00;</History>
+  </PropertyGroup>
+</Project>

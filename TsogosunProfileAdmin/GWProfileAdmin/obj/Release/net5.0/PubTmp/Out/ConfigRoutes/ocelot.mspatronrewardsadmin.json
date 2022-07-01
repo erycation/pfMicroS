@@ -1,0 +1,426 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/CommunicationPreference/All/{patronNo}/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/CommunicationPreference/All/{patronNo}/{siteId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCard/{scratchCardUID}/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCard/{scratchCardUID}/{siteId}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCard/All/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCard/All/{siteId}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCard/Get/{siteId}/{patronNumber}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCard/Get/{siteId}/{patronNumber}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCard/Overview/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCard/Overview/{siteId}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCard/Winners/{scratchCardUID}/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCard/Winners/{scratchCardUID}/{siteId}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCard/Winners/ScratchCard/{scratchCardUID}/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCard/Winners/ScratchCard/{scratchCardUID}/{siteId}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCard/Winners/Report",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCard/Winners/Report",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCard/Winners/Report/{scratchCardUID}/{siteId}/{reportType}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCard/Winners/Report/{scratchCardUID}/{siteId}/{reportType}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCard/Add",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCard/Add",
+      "UpstreamHttpMethod": [ "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCard/Update",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCard/Update",
+      "UpstreamHttpMethod": [ "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCardPrize/All/{scratchCardUID}/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCardPrize/All/{scratchCardUID}/{siteId}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCardPrize/Add",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCardPrize/Add",
+      "UpstreamHttpMethod": [ "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCardPrize/Update",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCardPrize/Update",
+      "UpstreamHttpMethod": [ "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    //scratch card Message
+    {
+      "DownstreamPathTemplate": "/api/ScratchCardMessage/Active/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCardMessage/Active/{siteId}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCardMessage/All/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCardMessage/All/{siteId}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    //Prize Type
+    {
+      "DownstreamPathTemplate": "/api/PrizeType/All/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/PrizeType/All/{siteId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    //scratch card prizes
+    {
+      "DownstreamPathTemplate": "/api/ScratchCardActiveTime/All/{siteId}/{scratchCardUID}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCardActiveTime/All/{siteId}/{scratchCardUID}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCardActiveTime/Add/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCardActiveTime/Add/{siteId}",
+      "UpstreamHttpMethod": [ "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/ScratchCardActiveTime/Update/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/ScratchCardActiveTime/Update/{siteId}",
+      "UpstreamHttpMethod": [ "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+   //leaderboard    
+    {
+      "DownstreamPathTemplate": "/api/LeaderBoard/Add",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/LeaderBoard/Add",
+      "UpstreamHttpMethod": [ "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/LeaderBoard/Update",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/LeaderBoard/Update",
+      "UpstreamHttpMethod": [ "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/LeaderBoard/All/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/LeaderBoard/All/{siteId}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/LeaderBoard/Get/{siteId}/{promotionId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/LeaderBoard/Get/{siteId}/{promotionId}",
+      "UpstreamHttpMethod": [ "POST", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/LeaderBoard/Patron/{siteId}/{patronNo}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/LeaderBoard/Patron/{siteId}/{patronNo}",
+      "UpstreamHttpMethod": [ "POST", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    //gaming areas
+    {
+      "DownstreamPathTemplate": "/api/GamingArea/All/{siteId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44302
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/GamingArea/All/{siteId}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    }
+  ]
+}

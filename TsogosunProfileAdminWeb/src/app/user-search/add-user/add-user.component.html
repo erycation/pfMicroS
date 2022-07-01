@@ -1,0 +1,67 @@
+<div class="row" style="margin: 0px; padding : 2px;">
+    <div class="card zeroPaddingMarginSetting" style="margin:0px;padding: 0px;">
+      <div class="card-header" style="text-align: center;padding-top: 5px;padding-bottom: 5px;">
+        <h5 style="text-align: left;padding: 2px;">
+          <i class="fa fa-user fa-md" aria-hidden="true" style="color:#6c757d"></i>&nbsp;Add User
+        </h5>
+      </div>
+      <div class="card-body">
+        <div class="row rowActionButtonSetting">
+          <div class="col-sm-6"></div>
+          <div class="col-sm-6">
+            <button type="button" class="btn btn-outline-primary statusBtnWidth" (click)="goToPageNoParams('user-search')" style="float: right;">
+              View Users &nbsp;<i class="fa fa-users" aria-hidden="true"></i>
+            </button>
+           </div>
+        </div>
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-md-2" style="text-align: right;padding-right: 10px;">Unit</div>
+            <div class="col-md-5">
+                <ng-select [items]="userSites" (change)="loadActiveDefaultPermissionGroup()" [virtualScroll]="true" bindLabel="siteFullName" bindValue="siteID"
+              placeholder="Select Unit" [(ngModel)]="adduser.siteID">
+            </ng-select>
+        </div>
+            <div class="col-md-5"></div>
+        </div>
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-md-2" style="text-align: right;padding-right: 10px;">Username</div>
+            <div class="col-md-5">
+                <input class="form-control" type="text" [(ngModel)]="adduser.username">
+            </div>
+            <div class="col-md-5"></div>
+        </div>
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-md-2" style="text-align: right;padding-right: 10px;">Firstname</div>
+            <div class="col-md-5">
+                <input class="form-control" type="text" [(ngModel)]="adduser.firstname">
+            </div>
+            <div class="col-md-5"></div>
+        </div>
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-md-2" style="text-align: right;padding-right: 10px;">Surname</div>
+            <div class="col-md-5">
+                <input class="form-control" type="text" [(ngModel)]="adduser.surname">
+            </div>
+            <div class="col-md-5"></div>
+        </div>
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+          <div class="col-md-2" style="text-align: right;padding-right: 10px;">Permission Group</div>
+          <div class="col-md-5">
+            <ng-select [items]="defaultPermissionGroups" [virtualScroll]="true" bindLabel="permissionGroupDesc" 
+              placeholder="Select Permision Group" [(ngModel)]="defaultPermissionGroup"  >
+          </ng-select>
+      </div>
+          <div class="col-md-5"></div>
+      </div>
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-md-7"></div>
+            <div class="col-md-5">
+                <button type="button" class="btn btn-outline-success statusBtnWidth" (click)="saveAndContinue()">
+                    Save & Continue &nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
+                  </button>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>

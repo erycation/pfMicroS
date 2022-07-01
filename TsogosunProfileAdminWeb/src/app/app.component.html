@@ -1,0 +1,42 @@
+<div class="row header" style="margin: 0px; padding:0px;">
+    <div class="col-md-2" style="text-align: center;">
+        <img src="../assets/images/tsogosunlogo.png" class="logoImage">
+    </div>
+    <div class="col-md-6" style="text-align: left;padding-top: 10px;padding-bottom: 10px;">
+        <h4 style="margin-top: 10px;">PROFILE ADMIN</h4>
+    </div>
+    <div class="col-md-4" style="text-align: right;padding-top: 10px;padding-bottom: 10px;">
+        <nav class="nav" style="float: right;" *ngIf="user">
+            <a class="nav-link disabled" href="javascript:void(0)" style="color: white;border-right: solid 1px white;">
+                <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp; {{user.username}}
+            </a>
+            <a class="nav-link" href="javascript:void(0)" style="color: white;border-right: solid 1px white;"
+                (click)="goToPage('')">
+                <i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home
+            </a>
+            <a class="nav-link" href="javascript:void(0)" style="color: white;" (click)="logout()">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</a>
+        </nav>
+    </div>
+</div>
+
+<div class="row" style="margin: 0px; padding:0px;background-color: #485969;">
+    <div class="col-md-2 menuLayoutSetting" style="margin: 0px;padding: 0px;">
+        <mat-nav-list style="background-color: #fafafa;border-right: solid #485969 5px;padding-bottom: 10px;" *ngIf="user">
+            <app-menu-list-item *ngFor="let item of user?.navItems" [item]="item"></app-menu-list-item>
+        </mat-nav-list>
+    </div>
+
+    <div class="col-md-10" style="padding: 0px;background-color: white;">
+        <div *ngIf="busy" class="overlay">
+        </div>
+        <div class="container" style="max-width: 1500px;margin: 0px; padding : 0px;">
+            <router-outlet></router-outlet>           
+        </div>
+        <div style="text-align: center;padding-top: 20px;" *ngIf="!user">
+            <small>Version : {{appVersion}}</small>
+        </div>
+    </div>
+    
+</div>
+

@@ -1,0 +1,46 @@
+<div class="custom-dialog">
+	<h2 mat-dialog-title>Add Active Times</h2>
+	<mat-dialog-content>
+    <mat-divider></mat-divider>
+    <div class="alert alert-success" role="alert" *ngIf="showSuccessMessage">
+        {{successMessage}}
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="showErrorMessage">
+        {{errorMessage}}
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-12" style="text-align: center;color: green;padding: 5px;">
+        <i>Scratch Card Date ({{addActiveDateModal.scratchCardStartDateNumber | date: 'd/M/y'}} - {{this.addActiveDateModal.scratchCardEndDateNumber | date: 'd/M/y'}})</i>
+        </div>
+      </div>
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-md-3" style="text-align: right;padding-right: 10px;">Start Date</div>
+            <div class="col-md-4">
+              <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+              [(bsValue)]="startDate" [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">          
+            </div>
+            <div class="col-md-3">
+              <timepicker [(ngModel)]="startTime" ></timepicker>
+              </div>
+              <div class="col-md-2"></div>
+        </div>
+        <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+            <div class="col-md-3" style="text-align: right;padding-right: 10px;">End date</div>
+            <div class="col-md-4">
+              <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+              [(bsValue)]="endDate" [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">              
+            </div>
+            <div class="col-md-3">
+              <timepicker [(ngModel)]="endTime" ></timepicker>
+              </div>
+              <div class="col-md-2"></div>
+        </div>
+
+	</mat-dialog-content>
+	<mat-dialog-actions align="end">        
+		<button mat-raised-button  [mat-dialog-close]="true">Close</button>
+        <button mat-raised-button color="primary" [disabled]="loading" (click)="saveScratchActiveTimes()">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Save</button>
+	</mat-dialog-actions>
+</div>

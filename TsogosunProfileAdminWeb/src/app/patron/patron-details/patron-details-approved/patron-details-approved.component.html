@@ -1,0 +1,42 @@
+<div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+    <table class="table table-bordered" style="margin-bottom: 0px;">
+      <thead style="background-color: #eee;">
+        <tr>
+          <th>ID/Passport No</th>
+          <th>Cell Number</th>              
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Rating</th>
+          <th>Date Confirmed</th>
+          <th>Record Status</th>
+          <th>ConfirmedBy</th>
+          <th style="text-align: center;">Action</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let approvedUserDetail of approvedUserDetailsDto">
+        <tr>
+          <td>{{approvedUserDetail.idpassportNO}}</td>
+          <td>{{approvedUserDetail.mobileNumber}}</td>           
+          <td>{{approvedUserDetail.firstName}}</td>
+          <td>{{approvedUserDetail.lastName}}</td>
+          <td>{{approvedUserDetail.rating}} </td>                            
+          <td>{{approvedUserDetail.dateConfirmed | date: 'd MMM yyyy'}}</td>
+          <td>
+            <b  [ngStyle]="{'color':isRecordSubmittedToGaming(approvedUserDetail.recordStatus) ? 'green' : 'red' }">
+              {{approvedUserDetail.recordStatus}}
+           </b>
+           </td>   
+          <td>
+            <b  [ngStyle]="{'color':canAccessApprovedRecord(approvedUserDetail.confirmedBy) ? 'green' : 'red' }">
+               {{approvedUserDetail.confirmedBy}}
+            </b>
+          </td>   
+          <td>
+            <button type="button" *ngIf="!isRecordSubmittedToGaming(approvedUserDetail.recordStatus)" class="btn btn-link pl-1" (click)="goToApprovedSubmitToIGT(approvedUserDetail)">
+              <i class="fa fa-edit" aria-hidden="true" style="color: blue;"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>         
+</div>

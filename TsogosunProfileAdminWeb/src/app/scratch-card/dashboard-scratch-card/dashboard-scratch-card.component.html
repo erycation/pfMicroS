@@ -1,0 +1,93 @@
+<div class="row" style="margin: 0px; padding : 2px;">
+  <div class="card zeroPaddingMarginSetting" style="margin:0px;padding: 0px;">
+    <div class="card-header" style="text-align: center;padding-top: 5px;padding-bottom: 5px;">
+      <h5 style="text-align: left;padding: 2px;">
+        <i class="fa fa-dashboard fa-md" aria-hidden="true" style="color:#6c757d"></i>&nbsp;Overview
+      </h5>
+    </div>
+    <div class="card-body">
+      <div class="row rowActionButtonSetting">
+        <div class="col-sm-9">
+          <h3>Scratch Cards</h3>
+        </div>
+        <div class="col-sm-3">
+          <div class="row">
+            <div class="col-sm-12">
+              <button type="button" class="btn btn-outline-primary statusBtnWidth" (click)="goToPage('scratch-card')"
+                style="float: right;">
+                Scratch Cards
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row rowPaddingSpacesettings">
+        <div class="col-md-3">
+          Unit<br />
+          <ng-select [items]="userSites" [virtualScroll]="true" appendTo="body" bindLabel="siteFullName"
+            bindValue="siteID" placeholder="Select Unit" [(ngModel)]="siteId">
+          </ng-select>
+        </div>
+        <div class="col-sm-3">
+          Start Date<br />
+          <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+            [(bsValue)]="startDate" [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">
+        </div>
+        <div class="col-sm-3">
+          End Date<br />
+          <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+            [(bsValue)]="endDate" [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">
+        </div>
+        <div class="col-md-2">
+          <br />
+          <button type="button" class="btn btn-secondary statusBtnWidth" (click)="displayOverviewData()">
+            Search &nbsp;<i class="fa fa-search" aria-hidden="true" style="color:white"></i>
+          </button>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+
+      <br />
+      <div class="row rowPaddingSpacesettings">
+        <table class="table table-bordered" style="margin-bottom: 0px;">
+          <thead style="background-color: #eee;">
+            <tr>
+              <th>Scratch Card</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>No Prizes</th>
+              <th>No Prizes Remaining</th>
+              <th>Scratch Cards Allocated</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody *ngFor="let scratchCardOverView of scratchCardOverViewsItems ">
+            <tr>
+              <td>{{scratchCardOverView.scratchCard}}</td>
+              <td>{{scratchCardOverView.startDate | date: 'd MMM yyyy'}}</td>
+              <td>{{scratchCardOverView.endDate | date: 'd MMM yyyy'}}</td>
+              <td>{{scratchCardOverView.noPrizes}}</td>
+              <td>{{scratchCardOverView.noPrizesRemainning}}</td>
+              <td>{{scratchCardOverView?.scratchCardsAllocated}}</td>
+              <td>
+                <b
+                  [ngStyle]="{'color':scratchCardOverView?.status === 'Active' ? 'green' : 'red' }">{{scratchCardOverView.status}}</b>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p *ngIf="showNoResultsMessage"
+          style="text-align: center;border:solid 1px #eee;padding: 10px;margin: 0px;color: red;">
+          {{resultsMessage}}</p>
+        <div class="row rowPaddingSpacesettings">
+          <div class="text-center">
+            <jw-pagination [items]="scratchCardOverViews" (changePage)="onChangePage($event)"></jw-pagination>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

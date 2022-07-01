@@ -1,0 +1,40 @@
+<mat-accordion>
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+      <mat-expansion-panel-header class="panelHeaderCss">
+        <mat-panel-title>
+          <b>Points</b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <br/>
+
+      <b>Earning and Grading</b>
+      <mat-divider></mat-divider>
+      <br/>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-sm-3" style="text-align: right;padding-right: 10px;">
+           Group Points Earning
+        </div>
+        <div class="col-sm-3">
+            <input class="form-control form-control-sm" type="text" readonly
+                [ngModel]="gamingPointsTSGDto?.totalPointsBalance" style="text-align: right">
+        </div>
+        <div class="col-sm-3" style="text-align: right;padding-right: 10px;">
+            Points Next Tier
+        </div>
+        <div class="col-sm-3">
+            <input class="form-control form-control-sm" type="text" readonly 
+            [ngModel]="gamingPointsTSGDto?.pointsToNextTier" style="text-align: right">
+        </div>
+    </div>
+    <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-sm-12" style="text-align:center;padding: 10px;">
+            <b>{{gamingPointsTSGDto?.footNote_Line1}}</b>
+        </div>
+    </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+
+
+

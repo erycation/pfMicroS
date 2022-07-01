@@ -1,0 +1,99 @@
+<div class="row vh-10 d-flex justify-content-center align-items-center" style="margin: 0px; padding : 2px;">
+  <div class="card zeroPaddingMarginSetting" style="margin:0px;padding: 0px;">
+    <div class="card-header" style="text-align: center;padding-top: 5px;padding-bottom: 5px;">
+      <h5 style="text-align: left;padding: 2px;">
+        <i class="fa fa-search fa-md" aria-hidden="true" style="color:#6c757d"></i>&nbsp;Patron Search
+      </h5>
+    </div>
+    <div class="card-body">
+
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <!--<div class="col-md-4">
+          Unit<br />
+          <ng-select [items]="userSites" [virtualScroll]="true" bindLabel="siteFullName" bindValue="siteID"
+            placeholder="Select Unit" [(ngModel)]="requestPatronParameter.siteID">
+          </ng-select>
+        </div>-->
+        <div class="col-md-3">
+          Patron Number<br />
+          <input class="form-control" type="text" [(ngModel)]="requestPatronParameter.patronNumber"
+            (keypress)="numberOnly($event)">
+        </div>
+
+        <div class="col-md-3">
+          ID/Passport Number<br />
+          <input class="form-control" type="text" [(ngModel)]="requestPatronParameter.iDPassport">
+        </div>
+
+        <div class="col-sm-3">
+          Cell Number<br />
+          <input class="form-control" type="text" [(ngModel)]="requestPatronParameter.mobileNumber">
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-3">
+          First / Middle Name<br />
+          <input class="form-control" type="text" [(ngModel)]="requestPatronParameter.patronName">
+        </div>
+        <div class="col-md-3">
+          Surname<br />
+          <input class="form-control" type="text" [(ngModel)]="requestPatronParameter.patronSurname">
+        </div>
+
+        <div class="col-sm-3">
+          Email Address<br />
+          <input class="form-control" type="text" [(ngModel)]="requestPatronParameter.emailAddress">
+        </div>
+        <div class="col-sm-3" style="text-align: center;">
+          <br />
+          <button type="button" class="btn btn-secondary statusBtnWidth" (click)="searchPatron()">
+            Search &nbsp;<i class="fa fa-search" aria-hidden="true" style="color:white"></i>
+          </button>
+        </div>
+      </div>
+      <br />
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <table class="table table-bordered" style="margin-bottom: 0px;">
+          <thead style="background-color: #eee;">
+            <tr>
+              <th>Site Name</th>
+              <th>Patron Number</th>              
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Status</th>
+              <th>Tier</th>
+              <th>Last Play Date</th>
+              <th style="text-align: center;">Action</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let patronItem of patronSearchDtoItems">
+            <tr>
+              <td>{{patronItem.siteName}}</td>
+              <td>{{patronItem.patronID}}</td>           
+              <td>{{patronItem.firstName}}</td>
+              <td>{{patronItem.lastName}}</td>
+              <td><b
+                  [ngStyle]="{'color':patronItem?.profileStatus === 'Active' ? 'green' : 'red' }">{{patronItem.profileStatus}}</b>
+              </td>
+              <td>{{patronItem.customerTier}}</td>
+              <td>{{patronItem.lastPlayDate | date: 'd MMM yyyy'}}</td>
+              <td>
+                <button type="button" class="btn btn-link pl-1" (click)="goToPatronDetail(patronItem)" *ngIf="canViewPatronDetails(userSites,patronItem.property_Registered)">
+                  <i class="fa fa-eye" aria-hidden="true" style="color: blue;"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p *ngIf="showNoResultsMessage" style="text-align: center;border:solid 1px #eee;padding: 10px;margin: 0px;color: red;">{{resultsMessage}}</p>
+        <div class="row rowPaddingSpacesettings">
+          <div class="text-center">
+            <jw-pagination [items]="patronSearchDto" (changePage)="onChangePage($event)"></jw-pagination>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

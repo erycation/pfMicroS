@@ -1,0 +1,203 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Patron/Get/Summary/{tsogosunID}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44389
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/mdm/Patron/Get/Summary/{tsogosunID}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Patron/GetAll",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44389
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/mdm/Patron/GetAll",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Patron",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44389
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/mdm/Patron",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Patron/Get/{tsogosunID}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44389
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/mdm/Patron/Get/{tsogosunID}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Patron/Get/Sites/{tsogosunID}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44389
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/mdm/Patron/Get/Sites/{tsogosunID}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Patron/ActiveSites/{tsogosunID}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44389
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/mdm/Patron/ActiveSites/{tsogosunID}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Patron/Sites/PatronNumber/{siteId}/{patronNumber}/{tsogosunID}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44389
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/mdm/Patron/Sites/PatronNumber/{siteId}/{patronNumber}/{tsogosunID}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    }
+
+    //gaming points
+
+    ,
+    {
+      "DownstreamPathTemplate": "/api/GamingPoints/Get/TSG/{tsogosunID}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44389
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/mdm/GamingPoints/TSG/{tsogosunID}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/GamingPoints/Get/Unit/{siteId}/{patronNumber}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44389
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/mdm/GamingPoints/Unit/{siteId}/{patronNumber}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+
+    //gaming KPSi
+
+    {
+      "DownstreamPathTemplate": "/api/GamingKPIS/Definitions",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44389
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/mdm/GamingKPIS/Definitions",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/GamingKPIS/Unit",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44389
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/mdm/GamingKPIS/Unit",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/GamingKPIS/Tsg",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44389
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/mdm/GamingKPIS/Tsg",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+<div class="custom-dialog">    
+  <div class="row rowPaddingSpacesettings">
+    <div class="col-sm-10">
+        <b>Patron Address</b>
+    </div>
+    <div class="col-sm-2">
+        <button mat-raised-button color="danger" [mat-dialog-close]="true" style="float: right;">Close</button>
+    </div>
+    <mat-divider></mat-divider>
+</div>
+<div class="row rowPaddingSpacesettings">
+  <div class="col-sm-2">
+    Country
+    <input class="form-control form-control-md" type="text" [ngModel]="igtPatronSearchAddressDto?.country"
+      readonly [ngStyle]="{'border-color':igtPatronSearchAddressDto?.isCountryCorrect ? 'green' : 'red' }">
+  </div>
+  <div class="col-sm-2">
+    Province
+    <input class="form-control form-control-md" type="text" [ngModel]="igtPatronSearchAddressDto?.province"
+      readonly [ngStyle]="{'border-color':igtPatronSearchAddressDto?.isProvinceCorrect ? 'green' : 'red' }">
+  </div>
+  <div class="col-sm-2">
+    City
+    <input class="form-control form-control-md" type="text" [ngModel]="igtPatronSearchAddressDto?.city"
+      readonly [ngStyle]="{'border-color':igtPatronSearchAddressDto?.isCityCorrect ? 'green' : 'red' }">
+  </div>
+  <div class="col-sm-3">
+    Suburb
+    <input class="form-control form-control-md" type="text" [ngModel]="igtPatronSearchAddressDto?.suburb"
+      readonly [ngStyle]="{'border-color':igtPatronSearchAddressDto?.isSuburbCorrect ? 'green' : 'red' }">
+  </div>
+  <div class="col-sm-2">
+    Postal Code
+    <input class="form-control form-control-md" type="text" [ngModel]="igtPatronSearchAddressDto?.postalCode"
+      readonly [ngStyle]="{'border-color':igtPatronSearchAddressDto?.isPostalCodeCorrect ? 'green' : 'red' }">
+  </div>
+  <div class="col-sm-1"></div>
+</div>
+<div class="row rowPaddingSpacesettings">
+  <div class="col-sm-12">
+    <b>Search By</b>
+    <mat-divider></mat-divider>
+  </div>
+</div>
+
+<div class="row rowPaddingSpacesettings">
+  <div class="col-sm-2">
+    Country
+    <input class="form-control form-control-md" type="text" [(ngModel)]="requestPatronAddress.country">
+  </div>
+  <div class="col-sm-2">
+    Province
+    <input class="form-control form-control-md" type="text" [(ngModel)]="requestPatronAddress.province">
+  </div>
+  <div class="col-sm-2">
+    City
+    <input class="form-control form-control-md" type="text" [(ngModel)]="requestPatronAddress.city">
+  </div>
+  <div class="col-sm-3">
+    Suburb
+    <input class="form-control form-control-md" type="text" [(ngModel)]="requestPatronAddress.suburb">
+  </div>
+  <div class="col-sm-2">
+    Postal Code
+    <input class="form-control form-control-md" type="text" [(ngModel)]="requestPatronAddress.postalCode">
+  </div>
+  <div class="col-sm-1">
+    <br />
+    <button type="button" class="btn btn-secondary" (click)="searchPatronAddress()">
+      Search
+    </button>
+  </div>
+</div>
+<br />
+    <mat-dialog-content>
+      <div class="row rowPaddingSpacesettings">
+        <table class="table table-bordered" style="margin-bottom: 0px;">
+            <thead style="background-color: #eee;">
+                <tr style="width: 100%;">
+                    <th style="width: 17%;">Country</th>
+                    <th style="width: 17%;">Province</th>
+                    <th style="width: 17%;">City</th>
+                    <th style="width: 25%;">Suburb</th>
+                    <th style="width: 17%;">Postal Code</th>
+                    <th style="width: 7%;">Use</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let patronAddress of patronAddressSearchDto">
+                <tr>
+                    <td>{{patronAddress.country}}</td>
+                    <td>{{patronAddress.provDescription}}</td>
+                    <td>{{patronAddress.town}}</td>
+                    <td>{{patronAddress.area}}</td>
+                    <td>{{patronAddress.postalCode}} </td>
+                    <td>
+                        <button type="button" class="btn btn-link pl-1" [mat-dialog-close]="true"
+                            (click)="selectAddress(patronAddress)">
+                            <i class="fa fa-plus" aria-hidden="true" style="color: green;"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </mat-dialog-content>
+</div>

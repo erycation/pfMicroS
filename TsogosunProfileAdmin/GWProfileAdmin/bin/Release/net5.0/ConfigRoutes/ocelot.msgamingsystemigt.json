@@ -1,0 +1,52 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/PlayerProfile/Get",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "http://192.168.150.107",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/IGT/PlayerProfile/Get",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/PlayerProfile/Update/{unit}/{playerID}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.150.200",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/IGT/PlayerProfile/Update/{unit}/{playerID}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/PlayerProfile/Add",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.150.200",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/profileAdmin/IGT/PlayerProfile/Add",
+      "UpstreamHttpMethod": [ "POST", "PUT" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    }
+  ]
+}

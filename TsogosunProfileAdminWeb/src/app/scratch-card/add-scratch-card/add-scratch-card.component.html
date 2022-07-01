@@ -1,0 +1,78 @@
+<div class="row vh-10 d-flex justify-content-center align-items-center" style="margin: 0px; padding : 2px;">
+  <div class="card zeroPaddingMarginSetting" style="margin:0px;padding: 0px;">
+    <div class="card-header" style="text-align: center;padding-top: 5px;padding-bottom: 5px;">
+      <h5 style="text-align: left;padding: 2px;">Add Scratch Card
+      </h5>
+    </div>
+    <div class="card-body">
+      <div class="row rowActionButtonSetting">
+        <div class="col-sm-9"></div>
+        <div class="col-sm-3">
+          <div class="row">
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-outline-primary statusBtnWidth"
+                (click)="goToPageNoParams('dashboard-scratch-card')" style="float: right;">
+                Dashboard &nbsp;<i class="fa fa-dashboard" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-outline-primary statusBtnWidth" (click)="goToPageNoParams('scratch-card')"
+                style="float: right;">
+                Scratch Cards
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Unit</div>
+        <div class="col-md-5">
+          <ng-select [items]="userSites" [virtualScroll]="true" bindLabel="siteFullName" 
+            placeholder="Select Unit" [(ngModel)]="siteDto" (change)="clearAndpopulateStrapiContentPerUnit()">
+          </ng-select>
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Scratch Card Name</div>
+        <div class="col-md-5">
+          <input class="form-control" type="text" [(ngModel)]="scratchCardDto.description">
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Start Date</div>
+        <div class="col-md-2">
+          <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+            [(bsValue)]="startDate" [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">
+        </div>
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">End Date</div>
+        <div class="col-md-2">
+          <input type="text" class="form-control" #dp="bsDatepicker" mask="00/00/0000" bsDatepicker
+            [(bsValue)]="endDate" [bsConfig]="{dateInputFormat: 'DD/MM/YYYY', 'containerClass': 'theme-dark-blue'}">
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-2" style="text-align: right;padding-right: 10px;">Tile Image</div>
+        <div class="col-md-7">
+          <input class="form-control" type="text" [(ngModel)]="scratchCardDto.tileImagePath" readonly>
+        </div>
+        <div class="col-md-3">
+          <button type="button" class="btn btn-outline-primary statusBtnWidth" (click)="addScratchCardTileImage('Tile Image')">
+            add <i class="fa fa-plus" aria-hidden="true" ></i>
+          </button>
+        </div>
+      </div>
+      <div class="row vh-10 d-flex justify-content-center align-items-center rowPaddingSpacesettings">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+          <button type="button" [disabled]="loading" style="float: right;" class="btn btn-outline-success statusBtnWidth" (click)="saveScratchCard()">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Save & Continue &nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

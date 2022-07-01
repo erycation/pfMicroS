@@ -1,0 +1,7 @@
+
+/*Tab selected background color*/
+
+.nav-tabs .nav-link.active, .nav-pills .show > .nav-link {
+    color: black;
+    background-color: rgba(0, 0, 0, 0.12);
+}
